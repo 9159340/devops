@@ -1,0 +1,24 @@
+site_name: Devops wiki
+site_url: https://9159340.github.io/devops/
+
+theme:
+  name: material
+  language: ru
+
+nav:
+  - Главная: index.md
+
+  - Linux:
+      - SSH: linux/ssh.md
+      - Systemd: linux/systemd.md
+
+  - Docker:
+      - Docker: docker/index.md
+      - Compose: docker/compose.md
+
+  - Git:
+      - Основы: git/index.md
+      - Worktree: git/worktree.md
+
+  - Kafka:
+      - Kafka: kafka/index.md
