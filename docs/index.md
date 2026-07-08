@@ -2,4 +2,4 @@
 
 Заметки и шпаргалки по Linux, Docker, Git и Kafka.
 
-[cron.md](КРОН)
+[КРОН](linux/cron.md)

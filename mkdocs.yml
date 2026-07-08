@@ -9,9 +9,10 @@ nav:
   - Главная: index.md
 
   - Linux:
+      - CRON: linux/cron.md
       - SSH: linux/ssh.md
       - Systemd: linux/systemd.md
-
+      
   - Docker:
       - Docker: docker/index.md
       - Compose: docker/compose.md
