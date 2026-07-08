@@ -1,6 +1,8 @@
 ---
-alwaysApply: false
+description: Always write a chat-end JSON summary to ./tmp
+alwaysApply: true
 ---
+
 # 📝 Chat-End Summary Rule
 
 At the **end of every chat turn**, do the following without exception:
