@@ -4,6 +4,17 @@ site_url: https://9159340.github.io/devops/
 theme:
   name: material
   language: ru
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Переключить на тёмную тему
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Переключить на светлую тему
 
 nav:
   - Главная: index.md
