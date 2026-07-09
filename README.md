@@ -4,6 +4,12 @@
 
 Настроен cron в WSL Ubuntu для запуска `git-upd.cmd` каждые 5 минут.
 
+Репо Git: c:\Z_PROJECTS2026\devops\
+Там создан CMD-файл git-upd.cmd с командой
+    git add . && git commit -m "upd" && git push
+
+Автозапуск каждые 5 минут будет обеспечивать Cron.
+
 ### Что сделано
 
 - **Wrapper** — `cron/run-git-upd.sh` запускает `git-upd.cmd` и пишет лог
