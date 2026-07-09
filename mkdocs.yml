@@ -24,6 +24,9 @@ nav:
       - SSH: linux/ssh.md
       - Systemd: linux/systemd.md
       
+  - LinuxDevops:
+      - Plan: linuxdevops/linux-plan-dim.md
+
   - Docker:
       - Docker: docker/index.md
       - Compose: docker/compose.md
