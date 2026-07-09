@@ -25,7 +25,9 @@ nav:
       - Systemd: linux/systemd.md
       
   - LinuxDevops:
+      - Обзор: linuxdevops/index.md
       - Plan: linuxdevops/linux-plan-dim.md
+      - Лекции: linuxdevops/linux-lectures.md
 
   - Docker:
       - Docker: docker/index.md

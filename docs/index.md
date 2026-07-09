@@ -4,4 +4,4 @@
 
 [КРОН](linux/cron.md)
 
-[План изучения Linux](linux/linux-plan-dim.md)
+[Linux DevOps](linuxdevops/index.md) — план изучения и краткие лекции
