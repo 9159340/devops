@@ -55,3 +55,6 @@ nav:
 
   - Kafka:
       - Kafka: kafka/index.md
+
+  - Interview:
+      - План собеседования: interview/devops-interview-plan.md
