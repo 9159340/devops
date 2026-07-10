@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My messages — Internal Messages</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header id="site-header"></header>
+    <main>
+      <div class="card">
+        <h1>My messages</h1>
+        <p class="hint">Only messages you sent are shown.</p>
+        <ul id="list" class="message-list"></ul>
+        <p id="empty" class="hint" hidden>No messages yet.</p>
+        <p id="error" class="error" hidden></p>
+      </div>
+    </main>
+    <script src="/app.js"></script>
+    <script>
+      if (!requireAuth()) {
+        /* redirecting */
+      } else {
+        renderHeader("messages");
+
+        (async () => {
+          const error = document.getElementById("error");
+          const empty = document.getElementById("empty");
+          const list = document.getElementById("list");
+          try {
+            const messages = await api("/api/messages");
+            if (!messages.length) {
+              empty.hidden = false;
+              return;
+            }
+            list.innerHTML = messages
+              .map(
+                (m) => `
+              <li>
+                <time datetime="${m.created_at}">${formatDate(m.created_at)}</time>
+                <div>${escapeHtml(m.text)}</div>
+              </li>`
+              )
+              .join("");
+          } catch (err) {
+            if (err.status === 401) {
+              clearSession();
+              window.location.href = "/login.html";
+              return;
+            }
+            error.textContent = err.message;
+            error.hidden = false;
+          }
+        })();
+      }
+
+      function escapeHtml(s) {
+        return s
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;");
+      }
+    </script>
+  </body>
+</html>
