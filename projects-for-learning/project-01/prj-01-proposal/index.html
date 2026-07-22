@@ -1,0 +1,2053 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://9159340.github.io/devops/projects-for-learning/project-01/prj-01-proposal/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Проект 01. Event pipeline: Spring → Kafka → Postgres + observability - Devops wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#01-event-pipeline-spring-kafka-postgres-observability" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../.." title="Devops wiki" class="md-header__button md-logo" aria-label="Devops wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Devops wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Проект 01. Event pipeline: Spring → Kafka → Postgres + observability
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Переключить на тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Переключить на светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Devops wiki" class="md-nav__button md-logo" aria-label="Devops wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Devops wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systemd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LinuxDevops
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LinuxDevops
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/linux-plan-dim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/linux-lectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Краткие лекции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Детальные лекции
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Детальные лекции
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/01-architektura-os-zagruzka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Архитектура и загрузка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/02-yadro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Ядро
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/03-ustrojstva/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Устройства
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/04-fajlovaya-sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Файловая система
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/05-processy-ipc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Процессы и IPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/06-systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. systemd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/07-polzovateli-bezopasnost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Безопасность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/08-set-osnovy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Сеть
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/09-dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/10-dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/11-namespaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Namespaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/12-cgroups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. cgroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/13-upravlenie-resursami/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Ресурсы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/14-trablshuting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Траблшутинг
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linuxdevops/lectures/15-ekspluataciya/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Эксплуатация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../git/worktree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worktree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kafka
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interview/devops-interview-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План собеседования
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Идея одной фразой
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Архитектура (целевой контур)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Стек (рекомендация)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Стек (рекомендация)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elk-kafka-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Почему не ELK и не полный Kafka-кластер
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что имитируем (домен)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope проекта (что обязательно сделать)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scope проекта (что обязательно сделать)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 0. Каркас репозитория
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-java-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 1. Инфраструктура без своих Java-приложений
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-consumer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 2. Consumer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-producer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 3. Producer (когда дойдёшь)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 4. Логи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Этап 4. Логи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add02-postgres-loki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add02: логи Postgres в Loki — да
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Этап 5. Дашборды и метрики
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Порты (черновик)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что сознательно НЕ входит (чтобы не расползтись)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Критерии «проект готов»
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devops-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Чему научишься (DevOps-смысл)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        План работ по неделям
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional later (когда базовый контур скучно)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Итог предложения
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="01-event-pipeline-spring-kafka-postgres-observability">Проект 01. Event pipeline: Spring → Kafka → Postgres + observability</h1>
+<p><strong>Уровень:</strong> новичок → junior DevOps (средняя сложность)<br />
+<strong>Формат:</strong> учебный end-to-end проект на одной машине (laptop / VM)<br />
+<strong>Срок ориентир:</strong> 2–4 недели по вечерам<br />
+<strong>Результат:</strong> рабочий стек в Docker Compose + README «как поднять / починить / посмотреть логи и дашборды»</p>
+<hr />
+<h2 id="_1">Идея одной фразой</h2>
+<p>Генератор фейковых событий (Spring producer) шлёт сообщения в Kafka → consumer читает топик и пишет в PostgreSQL → логи Java-приложений <strong>и Postgres</strong> собираются в Loki → на дашбордах видно поток сообщений, ошибки и состояние инфраструктуры.</p>
+<p>Это не «hello world compose», но и не кластер Kubernetes на три ноды. Ровно тот уровень, где уже есть сеть сервисов, персистентность, брокер и наблюдаемость.</p>
+<hr />
+<h2 id="_2">Архитектура (целевой контур)</h2>
+<pre><code class="language-text">┌─────────────┐     ┌─────────┐     ┌─────────────┐     ┌────────────┐
+│  producer   │────▶│  Kafka  │────▶│  consumer   │────▶│ PostgreSQL │
+│ Spring Boot │     │ 1 node  │     │ Spring Boot │     │            │
+└──────┬──────┘     └────┬────┘     └──────┬──────┘     └─────┬──────┘
+       │                 │                 │                  │
+       └────────────┬────┴─────────────────┴──────────────────┘
+                    ▼
+            ┌───────────────┐
+            │  logs (Loki)  │  ← Java + Postgres (+ опционально Kafka)
+            └───────┬───────┘
+                    ▼
+            ┌───────────────┐
+            │   Grafana     │◀── metrics (Prometheus)
+            └───────────────┘
+</code></pre>
+<p><strong>Поток данных:</strong> fake events → Kafka topic → consumer → таблица в Postgres.</p>
+<hr />
+<h2 id="_3">Стек (рекомендация)</h2>
+<table>
+<thead>
+<tr>
+<th>Компонент</th>
+<th>Выбор</th>
+<th>Почему так</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Оркестрация</td>
+<td><strong>Docker Compose</strong></td>
+<td>Один <code>docker compose up</code>, быстрый цикл обучения; K8s — следующий проект</td>
+</tr>
+<tr>
+<td>Producer</td>
+<td>Spring Boot (напишешь позже)</td>
+<td>Генератор нагрузки / фейковых событий</td>
+</tr>
+<tr>
+<td>Broker</td>
+<td><strong>Kafka 1 брокер</strong>, режим <strong>KRaft</strong> (без ZooKeeper)</td>
+<td>Для учёбы хватает; кластер — overkill</td>
+</tr>
+<tr>
+<td>Consumer</td>
+<td>Твой существующий Spring consumer</td>
+<td>Реальный код, не учебный stub</td>
+</tr>
+<tr>
+<td>БД</td>
+<td><strong>PostgreSQL 16</strong></td>
+<td>Куда пишет consumer</td>
+</tr>
+<tr>
+<td>Логи</td>
+<td><strong>Grafana Loki</strong> + <strong>Alloy</strong> (или Promtail)</td>
+<td>Java <strong>и Postgres</strong> (и при желании Kafka) в один стор</td>
+</tr>
+<tr>
+<td>Дашборды</td>
+<td><strong>Grafana</strong></td>
+<td>И логи, и метрики в одном UI</td>
+</tr>
+<tr>
+<td>Метрики</td>
+<td><strong>Prometheus</strong> + JMX / Actuator exporters</td>
+<td>Видно Kafka lag, JVM, Postgres</td>
+</tr>
+</tbody>
+</table>
+<h3 id="elk-kafka-">Почему не ELK и не полный Kafka-кластер</h3>
+<ul>
+<li><strong>ELK (Elasticsearch + Logstash + Kibana)</strong> тяжелее по RAM и настройке. Для первого проекта Loki + Grafana дают тот же навык «собрать логи → искать → алертить» с меньшей болью.</li>
+<li><strong>3 брокера Kafka</strong> учат репликации, но отнимают время на отладку quorum. Сначала один брокер + понятный pipeline; кластер — этап 2.</li>
+</ul>
+<hr />
+<h2 id="_4">Что имитируем (домен)</h2>
+<p>Выбери один простой домен и держись его — так проще писать producer и схему БД.</p>
+<p><strong>Вариант по умолчанию — платежные/заказы (order events):</strong></p>
+<pre><code class="language-json">{
+  &quot;eventId&quot;: &quot;uuid&quot;,
+  &quot;eventType&quot;: &quot;ORDER_CREATED&quot;,
+  &quot;occurredAt&quot;: &quot;2026-07-22T19:00:00Z&quot;,
+  &quot;orderId&quot;: &quot;ORD-10042&quot;,
+  &quot;userId&quot;: &quot;u-778&quot;,
+  &quot;amount&quot;: 1299.50,
+  &quot;currency&quot;: &quot;RUB&quot;,
+  &quot;status&quot;: &quot;NEW&quot;
+}
+</code></pre>
+<p>Producer шлёт 10–100 msg/sec (настраиваемо). Consumer пишет строки в <code>orders</code> / <code>events</code>. На дашборде видно rate, ошибки deserialize, consumer lag.</p>
+<p>Другие домены тоже ок: IoT telemetry, клики на сайте, логины — суть одна.</p>
+<hr />
+<h2 id="scope">Scope проекта (что обязательно сделать)</h2>
+<h3 id="0">Этап 0. Каркас репозитория</h3>
+<ul>
+<li><code>docker-compose.yml</code> (+ <code>.env.example</code>)</li>
+<li>папки: <code>producer/</code>, <code>consumer/</code>, <code>infra/</code> (Grafana dashboards, Prometheus config)</li>
+<li>README: схема, порты, команды up/down, smoke-check</li>
+</ul>
+<h3 id="1-java-">Этап 1. Инфраструктура без своих Java-приложений</h3>
+<p>Поднять и проверить:</p>
+<ol>
+<li>PostgreSQL + volume + healthcheck  </li>
+<li>Kafka (KRaft, 1 node) + создание топика (скрипт или init-контейнер)  </li>
+<li>Grafana + Loki + Prometheus (пока «пустые», но открываются)</li>
+</ol>
+<p>Smoke:</p>
+<ul>
+<li><code>kafka-topics.sh --list</code></li>
+<li><code>psql</code> → <code>\dt</code> / <code>SELECT 1</code></li>
+<li>UI Grafana на <code>localhost:3000</code></li>
+</ul>
+<h3 id="2-consumer">Этап 2. Consumer</h3>
+<ul>
+<li>Dockerfile для существующего Spring consumer</li>
+<li>env: <code>SPRING_KAFKA_*</code>, <code>SPRING_DATASOURCE_*</code></li>
+<li>миграции схемы (Flyway/Liquibase или SQL init)</li>
+<li>health endpoint (<code>/actuator/health</code>)</li>
+</ul>
+<p>Проверка: вручную положить сообщение в топик (console producer или kcat) → строка в Postgres.</p>
+<h3 id="3-producer">Этап 3. Producer (когда дойдёшь)</h3>
+<ul>
+<li>Spring Boot: scheduler / loop генерит JSON в топик</li>
+<li>параметры: <code>messagesPerSecond</code>, <code>duration</code>, вероятность «битого» сообщения (чтобы увидеть ошибки в логах)</li>
+<li>Dockerfile + сервис в compose</li>
+</ul>
+<h3 id="4">Этап 4. Логи</h3>
+<ul>
+<li>Java пишет в stdout (JSON или plain — лучше JSON)</li>
+<li>Postgres тоже пишет в stdout контейнера (официальный образ так и делает по умолчанию)</li>
+<li>Alloy/Promtail забирает логи контейнеров → Loki (один пайплайн на все сервисы)</li>
+<li>В Grafana: Explore по <code>{service="consumer"}</code> / <code>{service="producer"}</code> / <code>{service="postgres"}</code></li>
+</ul>
+<p>Навык: «упал consumer → нашёл stacktrace за 30 секунд без <code>docker logs</code> вручную по всем контейнерам». То же для ошибок БД (connection refused, deadlock, slow query — если включишь <code>log_min_duration_statement</code>).</p>
+<h4 id="add02-postgres-loki">Add02: логи Postgres в Loki — да</h4>
+<p><strong>Да, можно и нужно.</strong> Loki не привязан к Java: он принимает любые текстовые/JSON-логи. В Docker Compose самый простой путь:</p>
+<ol>
+<li>Контейнер <code>postgres</code> уже пишет логи в <strong>stdout/stderr</strong>.</li>
+<li>Alloy/Promtail читает Docker logging API (или файлы <code>/var/lib/docker/containers/...</code>) и шлёт в Loki с лейблом <code>service=postgres</code>.</li>
+<li>В Grafana ищешь: <code>{service="postgres"} |= "ERROR"</code> или <code>|= "FATAL"</code>.</li>
+</ol>
+<p>Что полезно подкрутить в Postgres (через <code>command</code> / <code>postgresql.conf</code> / env образа):</p>
+<table>
+<thead>
+<tr>
+<th>Настройка</th>
+<th>Зачем</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>logging_collector</code> не обязателен в Docker</td>
+<td>Достаточно stderr → Docker → Loki</td>
+</tr>
+<tr>
+<td><code>log_min_messages = warning</code> (или <code>info</code>)</td>
+<td>Не заливать диск болтовнёй</td>
+</tr>
+<tr>
+<td><code>log_connections</code> / <code>log_disconnections = on</code></td>
+<td>Видно, кто коннектится (удобно при отладке consumer)</td>
+</tr>
+<tr>
+<td><code>log_min_duration_statement = 500</code></td>
+<td>Медленные запросы ≥ 500 ms в логах</td>
+</tr>
+</tbody>
+</table>
+<p>Не путать: <strong>логи БД</strong> (Loki) и <strong>метрики БД</strong> (Prometheus + postgres_exporter) — разные вещи. Логи отвечают на «что случилось / какая ошибка», метрики — на «сколько коннектов / размер / TPS».</p>
+<h3 id="5">Этап 5. Дашборды и метрики</h3>
+<p>Минимум панелей в Grafana:</p>
+<table>
+<thead>
+<tr>
+<th>Панель</th>
+<th>Откуда</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Messages in / out (topic)</td>
+<td>Kafka exporter или JMX</td>
+</tr>
+<tr>
+<td>Consumer lag</td>
+<td>Kafka exporter</td>
+</tr>
+<tr>
+<td>JVM heap / GC</td>
+<td>Spring Actuator → Micrometer → Prometheus</td>
+</tr>
+<tr>
+<td>Postgres connections / size</td>
+<td>postgres_exporter</td>
+</tr>
+<tr>
+<td>Error rate в логах</td>
+<td>Loki (LogQL count)</td>
+</tr>
+<tr>
+<td>Rows inserted / min</td>
+<td>SQL / метрика из app</td>
+</tr>
+</tbody>
+</table>
+<p>Бонус: один простой alert (например lag &gt; N или consumer down).</p>
+<hr />
+<h2 id="_5">Порты (черновик)</h2>
+<table>
+<thead>
+<tr>
+<th>Сервис</th>
+<th>Порт</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Producer (если есть HTTP)</td>
+<td>8081</td>
+</tr>
+<tr>
+<td>Consumer Actuator</td>
+<td>8082</td>
+</tr>
+<tr>
+<td>Kafka</td>
+<td>9092</td>
+</tr>
+<tr>
+<td>Postgres</td>
+<td>5432</td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>Prometheus</td>
+<td>9090</td>
+</tr>
+<tr>
+<td>Loki</td>
+<td>3100</td>
+</tr>
+</tbody>
+</table>
+<p>На одной машине не публикуй лишнее наружу — только то, чем пользуешься сам.</p>
+<hr />
+<h2 id="_6">Что сознательно НЕ входит (чтобы не расползтись)</h2>
+<ul>
+<li>Kubernetes / Helm (следующий проект: перенос этого же стека)</li>
+<li>Мульти-брокер Kafka, MirrorMaker, Schema Registry (можно как optional later)</li>
+<li>Облако (AWS/GCP) — всё локально</li>
+<li>Полноценный CI/CD в GitHub Actions — опционально в конце (build images + compose smoke)</li>
+</ul>
+<hr />
+<h2 id="_7">Критерии «проект готов»</h2>
+<ul>
+<li>[ ] <code>docker compose up -d</code> поднимает весь контур без ручных костылей</li>
+<li>[ ] Producer (или console) → Kafka → Consumer → строка в Postgres</li>
+<li>[ ] Логи producer / consumer / <strong>postgres</strong> видны в Grafana/Loki</li>
+<li>[ ] Есть хотя бы один дашборд с lag / throughput / ошибками</li>
+<li>[ ] README: как запустить, как проверить, типичные поломки (consumer не коннектится к Kafka, миграции, диск volume)</li>
+<li>[ ] (опционально) <code>docker compose down -v</code> и снова up — данные/топик пересоздаются предсказуемо</li>
+</ul>
+<hr />
+<h2 id="devops-">Чему научишься (DevOps-смысл)</h2>
+<ol>
+<li><strong>Compose как контракт инфраструктуры</strong> — сервисы, сети, volumes, healthchecks, depends_on.  </li>
+<li><strong>Асинхронный pipeline</strong> — брокер, топик, consumer group, lag (это любят на собесах).  </li>
+<li><strong>Stateful vs stateless</strong> — Postgres/Kafka с диском vs app-контейнеры.  </li>
+<li><strong>Observability 101</strong> — логи ≠ метрики; куда смотреть при инциденте.  </li>
+<li><strong>12-factor лёгкая версия</strong> — конфиг через env, логи в stdout, healthchecks.</li>
+</ol>
+<hr />
+<h2 id="_8">План работ по неделям</h2>
+<table>
+<thead>
+<tr>
+<th>Неделя</th>
+<th>Фокус</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Compose: Postgres + Kafka + Grafana/Loki/Prometheus; README-скелет</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Consumer в Docker, запись в БД, первые логи в Loki</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Producer + настройка нагрузки; дашборд lag/throughput</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Полировка: алерты, скрипт smoke-test, разбор 2–3 инцидентов в NOTES.md</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="optional-later">Optional later (когда базовый контур скучно)</h2>
+<ol>
+<li>Schema Registry + Avro/JSON Schema (совместимость контрактов).  </li>
+<li>Kafka UI (AKHQ / Redpanda Console) для отладки топиков.  </li>
+<li>Перенос в Minikube/kind: Deployment + StatefulSet + PVC.  </li>
+<li>GitHub Actions: build &amp; push images, <code>compose</code> integration test.  </li>
+<li>Второй consumer group / dead-letter topic для «ядовитых» сообщений.</li>
+</ol>
+<hr />
+<h2 id="_9">Итог предложения</h2>
+<p><strong>Делаем:</strong> локальный event-driven стенд на Docker Compose — Spring producer → Kafka (1 node, KRaft) → Spring consumer → PostgreSQL; логи Java <strong>и Postgres</strong> в Loki; дашборды в Grafana (+ Prometheus).</p>
+<p><strong>Сложность:</strong> средняя — есть брокер и observability, но без K8s и без multi-broker.</p>
+<p><strong>Порядок:</strong> сначала infra + consumer (у тебя уже есть), потом producer и красивые дашборды.</p>
+<p>Когда скажешь «поехали» — можно разложить конкретный <code>docker-compose.yml</code>, список env и скелет репозитория под этот план.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

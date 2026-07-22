@@ -1,0 +1,3532 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://9159340.github.io/devops/interview/devops-interview-plan/">
+      
+      
+        <link rel="prev" href="../../kafka/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>План собеседования - Devops wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#devops-" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Devops wiki" class="md-header__button md-logo" aria-label="Devops wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Devops wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              План собеседования
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Переключить на тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Переключить на светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Devops wiki" class="md-nav__button md-logo" aria-label="Devops wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Devops wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systemd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LinuxDevops
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LinuxDevops
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/linux-plan-dim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/linux-lectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Краткие лекции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Детальные лекции
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Детальные лекции
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/01-architektura-os-zagruzka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Архитектура и загрузка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/02-yadro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Ядро
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/03-ustrojstva/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Устройства
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/04-fajlovaya-sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Файловая система
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/05-processy-ipc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Процессы и IPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/06-systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. systemd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/07-polzovateli-bezopasnost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Безопасность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/08-set-osnovy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Сеть
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/09-dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/10-dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/11-namespaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Namespaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/12-cgroups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. cgroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/13-upravlenie-resursami/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Ресурсы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/14-trablshuting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Траблшутинг
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linuxdevops/lectures/15-ekspluataciya/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Эксплуатация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/worktree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worktree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kafka
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План собеседования
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План собеседования
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#6090" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Примерный ход беседы (60–90 мин)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 1. DevOps как подход
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 1. DevOps как подход">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-devops_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Что такое DevOps и чем он отличается от «просто администрирования»?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Опишите свой самый сложный прод-кейс: что сломалось и как чинили?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 2. Linux: процессы и сигналы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 2. Linux: процессы и сигналы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-devops_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем процесс отличается от потока? Зачем это DevOps?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sigterm-sigkill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Чем SIGTERM отличается от SIGKILL? Почему это важно для контейнеров?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 3. Linux: диагностика «тормозов»
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 3. Linux: диагностика «тормозов»">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Сервер «тупит». С чего начнёте?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-load-average-450-230-110-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Load Average 4.50 2.30 1.10 на 4 ядрах — это плохо?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 4. Файловая система, диск, права
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 4. Файловая система, диск, права">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-df" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. df показывает свободное место, а писать нельзя. Почему?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как найти, что забило диск, и безопасно почистить?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-dns-tcp-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 5. Сеть: DNS, TCP, HTTP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 5. Сеть: DNS, TCP, HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-curl-httpsexamplecom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Что происходит, когда вы делаете curl https://example.com?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tcp-udp-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Чем TCP отличается от UDP? Примеры из DevOps.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 6. Git и ветвление
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 6. Git и ветвление">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-branching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Какую branching strategy вы использовали?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как разрешите конфликт и не сломаете историю команды?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 7. Docker: основы контейнеров
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 7. Docker: основы контейнеров">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем контейнер отличается от виртуальной машины?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Контейнер сразу падает. Как отладите?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 8. Dockerfile и образы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 8. Dockerfile и образы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cmd-entrypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем CMD отличается от ENTRYPOINT?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как уменьшить размер образа и ускорить сборку?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 9. Kubernetes: архитектура
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 9. Kubernetes: архитектура">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Из чего состоит кластер Kubernetes?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deployment-vs-statefulset-vs-daemonset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Deployment vs StatefulSet vs DaemonSet — когда что?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-kubernetes-pod-probes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 10. Kubernetes: Pod, probes, ресурсы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 10. Kubernetes: Pod, probes, ресурсы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-liveness-readiness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем liveness отличается от readiness?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-requests-limits-oomkilled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Что такое requests и limits? Что будет при OOMKilled?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 11. Kubernetes: сеть и типичные сбои
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 11. Kubernetes: сеть и типичные сбои">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Как работает DNS внутри кластера?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pod-crashloopbackoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Pod в CrashLoopBackOff — ваш чеклист?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 12. CI/CD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 12. CI/CD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Опишите пайплайн «от коммита до прода» для вашего сервиса.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-blue-green-vs-canary-vs-rolling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Blue-Green vs Canary vs Rolling — плюсы и минусы?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-infrastructure-as-code-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 13. Infrastructure as Code: Terraform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 13. Infrastructure as Code: Terraform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-terraform-ansible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем Terraform отличается от Ansible?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Что такое state и почему его нельзя хранить «как попало»?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-ansible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 14. Конфигурация: Ansible
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 14. Конфигурация: Ansible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Идемпотентность — что это и зачем?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как организуете роли и секреты?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 15. Мониторинг и observability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 15. Мониторинг и observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-http-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Какие метрики «золотых сигналов» смотрите для HTTP-сервиса?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как отличить симптом от причины в алерте?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 16. Облако (часто AWS как пример)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 16. Облако (часто AWS как пример)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Как спроектируете публичный веб-сервис в облаке?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-private-subnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как безопасно зайти на инстанс в private subnet?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 17. Безопасность и секреты
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 17. Безопасность и секреты">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Почему env с паролями — плохая идея и что лучше?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как ограничить права сервиса в Kubernetes?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-sre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 18. SRE, инциденты, надёжность
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 18. SRE, инциденты, надёжность">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Как ведёте себя при ночном инциденте?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-error-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Что такое error budget и зачем он нужен?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 19. Балансировка и высокая доступность
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 19. Балансировка и высокая доступность">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-l4-l7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем L4-балансировка отличается от L7?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-zero-downtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как обеспечите zero-downtime деплой?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 20. Базы данных глазами DevOps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 20. Базы данных глазами DevOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vs-trade-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Синхронная vs асинхронная репликация — trade-off?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как встроить миграции БД в CI/CD без даунтайма?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Чеклист перед собеседованием
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Полезные ориентиры для углубления
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#6090" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Примерный ход беседы (60–90 мин)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 1. DevOps как подход
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 1. DevOps как подход">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-devops_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Что такое DevOps и чем он отличается от «просто администрирования»?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Опишите свой самый сложный прод-кейс: что сломалось и как чинили?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 2. Linux: процессы и сигналы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 2. Linux: процессы и сигналы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-devops_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем процесс отличается от потока? Зачем это DevOps?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sigterm-sigkill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Чем SIGTERM отличается от SIGKILL? Почему это важно для контейнеров?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 3. Linux: диагностика «тормозов»
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 3. Linux: диагностика «тормозов»">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Сервер «тупит». С чего начнёте?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-load-average-450-230-110-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Load Average 4.50 2.30 1.10 на 4 ядрах — это плохо?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 4. Файловая система, диск, права
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 4. Файловая система, диск, права">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-df" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. df показывает свободное место, а писать нельзя. Почему?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как найти, что забило диск, и безопасно почистить?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-dns-tcp-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 5. Сеть: DNS, TCP, HTTP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 5. Сеть: DNS, TCP, HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-curl-httpsexamplecom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Что происходит, когда вы делаете curl https://example.com?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tcp-udp-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Чем TCP отличается от UDP? Примеры из DevOps.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 6. Git и ветвление
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 6. Git и ветвление">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-branching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Какую branching strategy вы использовали?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как разрешите конфликт и не сломаете историю команды?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 7. Docker: основы контейнеров
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 7. Docker: основы контейнеров">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем контейнер отличается от виртуальной машины?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Контейнер сразу падает. Как отладите?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 8. Dockerfile и образы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 8. Dockerfile и образы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cmd-entrypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем CMD отличается от ENTRYPOINT?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как уменьшить размер образа и ускорить сборку?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 9. Kubernetes: архитектура
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 9. Kubernetes: архитектура">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Из чего состоит кластер Kubernetes?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deployment-vs-statefulset-vs-daemonset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Deployment vs StatefulSet vs DaemonSet — когда что?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-kubernetes-pod-probes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 10. Kubernetes: Pod, probes, ресурсы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 10. Kubernetes: Pod, probes, ресурсы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-liveness-readiness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем liveness отличается от readiness?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-requests-limits-oomkilled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Что такое requests и limits? Что будет при OOMKilled?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 11. Kubernetes: сеть и типичные сбои
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 11. Kubernetes: сеть и типичные сбои">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Как работает DNS внутри кластера?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pod-crashloopbackoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Pod в CrashLoopBackOff — ваш чеклист?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 12. CI/CD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 12. CI/CD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Опишите пайплайн «от коммита до прода» для вашего сервиса.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-blue-green-vs-canary-vs-rolling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Blue-Green vs Canary vs Rolling — плюсы и минусы?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-infrastructure-as-code-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 13. Infrastructure as Code: Terraform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 13. Infrastructure as Code: Terraform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-terraform-ansible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем Terraform отличается от Ansible?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Что такое state и почему его нельзя хранить «как попало»?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-ansible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 14. Конфигурация: Ansible
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 14. Конфигурация: Ansible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Идемпотентность — что это и зачем?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как организуете роли и секреты?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 15. Мониторинг и observability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 15. Мониторинг и observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-http-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Какие метрики «золотых сигналов» смотрите для HTTP-сервиса?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как отличить симптом от причины в алерте?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 16. Облако (часто AWS как пример)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 16. Облако (часто AWS как пример)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Как спроектируете публичный веб-сервис в облаке?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-private-subnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как безопасно зайти на инстанс в private subnet?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 17. Безопасность и секреты
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 17. Безопасность и секреты">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Почему env с паролями — плохая идея и что лучше?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как ограничить права сервиса в Kubernetes?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-sre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 18. SRE, инциденты, надёжность
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 18. SRE, инциденты, надёжность">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Как ведёте себя при ночном инциденте?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-error-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Что такое error budget и зачем он нужен?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 19. Балансировка и высокая доступность
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 19. Балансировка и высокая доступность">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-l4-l7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Чем L4-балансировка отличается от L7?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-zero-downtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как обеспечите zero-downtime деплой?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тема 20. Базы данных глазами DevOps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Тема 20. Базы данных глазами DevOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vs-trade-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 1. Синхронная vs асинхронная репликация — trade-off?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вопрос 2. Как встроить миграции БД в CI/CD без даунтайма?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Чеклист перед собеседованием
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Полезные ориентиры для углубления
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="devops-">План беседы на собеседовании DevOps-инженера</h1>
+<p>Документ — примерный сценарий технической беседы (middle / middle+). Темы и вопросы собраны по типичным источникам 2025–2026: разборы реальных интервью, подборки вопросов по Linux / Docker / Kubernetes / CI/CD / IaC, материалы по подготовке к DevOps/SRE.</p>
+<p><strong>Как пользоваться:</strong> идите по темам сверху вниз — так часто строится интервью: от Linux и сетей к контейнерам, оркестрации, пайплайнам и эксплуатации. На каждый вопрос готовьте короткий ответ + пример из опыта (метод STAR: Situation → Task → Action → Result).</p>
+<p><strong>Что ценят сейчас:</strong> не определения инструментов, а диагностику инцидентов, trade-off’ы и умение объяснить «что происходит под капотом».</p>
+<hr />
+<h2 id="6090">Примерный ход беседы (60–90 мин)</h2>
+<table>
+<thead>
+<tr>
+<th>Этап</th>
+<th>Время</th>
+<th>Что проверяют</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Знакомство и опыт</td>
+<td>5–10 мин</td>
+<td>Стек, зона ответственности, сложный кейс</td>
+</tr>
+<tr>
+<td>Linux + сеть</td>
+<td>15–20 мин</td>
+<td>Диагностика, процессы, TCP/DNS</td>
+</tr>
+<tr>
+<td>Docker + Kubernetes</td>
+<td>20–25 мин</td>
+<td>Контейнеры, поды, probes, отладка</td>
+</tr>
+<tr>
+<td>CI/CD + IaC</td>
+<td>10–15 мин</td>
+<td>Пайплайн, Terraform/Ansible, секреты</td>
+</tr>
+<tr>
+<td>Мониторинг / инциденты / облако</td>
+<td>10–15 мин</td>
+<td>Observability, on-call, HA</td>
+</tr>
+<tr>
+<td>Вопросы кандидата</td>
+<td>5 мин</td>
+<td>Интерес к команде и продукту</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-devops">Тема 1. DevOps как подход</h2>
+<p><strong>DevOps</strong> (Development + Operations) — практика сближения разработки и эксплуатации: автоматизация поставки, общая ответственность за сервис, быстрая обратная связь.</p>
+<h3 id="1-devops_1">Вопрос 1. Что такое DevOps и чем он отличается от «просто администрирования»?</h3>
+<p>Кратко: культура + процессы + инструменты. Цель — сократить цикл от коммита до продакшена без потери стабильности. Админ часто «держит серверы»; DevOps строит <strong>CI/CD</strong> (Continuous Integration / Continuous Delivery — непрерывная интеграция и доставка), инфраструктуру как код и наблюдаемость.</p>
+<h3 id="2-">Вопрос 2. Опишите свой самый сложный прод-кейс: что сломалось и как чинили?</h3>
+<p>Готовьте 1–2 истории: симптомы → гипотезы → команды/метрики → root cause → профилактика.</p>
+<hr />
+<h2 id="2-linux">Тема 2. Linux: процессы и сигналы</h2>
+<p><strong>Процесс</strong> — программа в выполнении со своим адресным пространством и PID (Process ID). <strong>Поток (thread)</strong> — единица исполнения внутри процесса, делит память с другими потоками.</p>
+<h3 id="1-devops_2">Вопрос 1. Чем процесс отличается от потока? Зачем это DevOps?</h3>
+<p>Лимиты CPU/RAM в контейнере и <strong>cgroup</strong> (control groups — группы контроля ресурсов ядра) действуют на все потоки процесса. От этого зависят <code>requests</code>/<code>limits</code> в Kubernetes и поведение при OOM.</p>
+<pre><code class="language-bash">ps aux --sort=-%cpu | head -10
+ps -eLf | head          # потоки (NLWP)
+pstree -p $$
+</code></pre>
+<h3 id="2-sigterm-sigkill">Вопрос 2. Чем SIGTERM отличается от SIGKILL? Почему это важно для контейнеров?</h3>
+<p><strong>SIGTERM</strong> (15) — «завершись корректно» (можно обработать). <strong>SIGKILL</strong> (9) — убить сразу, нельзя перехватить. При удалении Pod Kubernetes шлёт SIGTERM, ждёт <code>terminationGracePeriodSeconds</code>, затем SIGKILL.</p>
+<pre><code class="language-bash">kill -TERM &lt;pid&gt;        # мягко
+kill -9 &lt;pid&gt;           # жёстко (SIGKILL)
+# в контейнере: что получает PID 1
+docker top &lt;container&gt;
+</code></pre>
+<hr />
+<h2 id="3-linux">Тема 3. Linux: диагностика «тормозов»</h2>
+<p>Метод <strong>USE</strong>: Utilization (загрузка), Saturation (очереди), Errors (ошибки) — по CPU, памяти, диску, сети.</p>
+<h3 id="1">Вопрос 1. Сервер «тупит». С чего начнёте?</h3>
+<p>Смотрите load average, CPU, память/swap, диск (iowait), сеть, логи ядра (OOM).</p>
+<pre><code class="language-bash">uptime
+top -bn1 | head -20
+free -h
+vmstat 1 5
+iostat -xz 1 3
+ss -tunapl
+dmesg -T | grep -iE 'oom|error|fail' | tail
+journalctl -k -b --no-pager | grep -i oom
+</code></pre>
+<h3 id="2-load-average-450-230-110-4">Вопрос 2. Load Average 4.50 2.30 1.10 на 4 ядрах — это плохо?</h3>
+<p><strong>Load average</strong> — среднее число задач в очереди на CPU (running + waiting) за 1 / 5 / 15 минут. На 4 ядрах ~4.0 — «все ядра заняты». Важен тренд: 4.5 → 2.3 → 1.1 — нагрузка падает; обратный тренд — проблема нарастает. Высокий LA при низком CPU часто значит <strong>iowait</strong> / процессы в состоянии D.</p>
+<pre><code class="language-bash">nproc
+cat /proc/loadavg
+mpstat -P ALL 1 3
+</code></pre>
+<hr />
+<h2 id="4">Тема 4. Файловая система, диск, права</h2>
+<p><strong>inode</strong> — метаданные файла (права, владелец, указатели на блоки данных). <strong>Soft link (symlink)</strong> — ссылка по пути; <strong>hard link</strong> — ещё одно имя на тот же inode.</p>
+<h3 id="1-df">Вопрос 1. <code>df</code> показывает свободное место, а писать нельзя. Почему?</h3>
+<p>Частые причины: кончились inode; нет прав; read-only mount; квота; заполнен конкретный раздел/volume.</p>
+<pre><code class="language-bash">df -h
+df -i
+mount | column -t
+ls -ld /var/log
+du -xh /var | sort -h | tail -20
+</code></pre>
+<h3 id="2">Вопрос 2. Как найти, что забило диск, и безопасно почистить?</h3>
+<p>Ищите крупные каталоги и открытые удалённые файлы (процесс держит handle — место не освобождается).</p>
+<pre><code class="language-bash">du -xh --max-depth=1 / | sort -h
+lsof +L1 | head            # удалённые, но открытые файлы
+# ротация логов (пример)
+journalctl --disk-usage
+journalctl --vacuum-size=500M
+</code></pre>
+<hr />
+<h2 id="5-dns-tcp-http">Тема 5. Сеть: DNS, TCP, HTTP</h2>
+<p><strong>DNS</strong> (Domain Name System) — разрешение имён в IP. <strong>TCP</strong> (Transmission Control Protocol) — надёжный поток с handshake. <strong>TLS</strong> (Transport Layer Security) — шифрование поверх TCP. <strong>HTTP</strong> — протокол приложения.</p>
+<h3 id="1-curl-httpsexamplecom">Вопрос 1. Что происходит, когда вы делаете <code>curl https://example.com</code>?</h3>
+<p>Разбор <code>curl</code> → DNS → TCP handshake (SYN/SYN-ACK/ACK) → TLS → HTTP-запрос/ответ → закрытие или keep-alive. Интервьюер ждёт именно эту цепочку, а не «скачивает страницу».</p>
+<pre><code class="language-bash">curl -vI https://example.com
+dig +short example.com A
+getent hosts example.com
+ss -tn dst example.com:443
+</code></pre>
+<h3 id="2-tcp-udp-devops">Вопрос 2. Чем TCP отличается от UDP? Примеры из DevOps.</h3>
+<p><strong>TCP</strong> — упорядоченно и с подтверждениями (HTTP, SSH, PostgreSQL). <strong>UDP</strong> — без гарантий доставки, быстрее (DNS-запросы, метрики StatsD, часть VPN).</p>
+<pre><code class="language-bash">ss -tulpn
+# DNS обычно UDP/53 (крупные ответы — TCP)
+dig @8.8.8.8 example.com
+</code></pre>
+<hr />
+<h2 id="6-git">Тема 6. Git и ветвление</h2>
+<p><strong>Git</strong> — распределённая система контроля версий. <strong>PR/MR</strong> (Pull/Merge Request) — запрос на слияние с ревью.</p>
+<h3 id="1-branching-strategy">Вопрос 1. Какую branching strategy вы использовали?</h3>
+<p>Часто: trunk-based / GitHub Flow / GitFlow. Важно объяснить: как попадает в prod, как откатываете, как защищаете <code>main</code>.</p>
+<pre><code class="language-bash">git status
+git log --oneline -10
+git branch -vv
+git diff main...HEAD
+</code></pre>
+<h3 id="2_1">Вопрос 2. Как разрешите конфликт и не сломаете историю команды?</h3>
+<p>Понять обе стороны, смержить/ребейзнуть осознанно, прогнать тесты, не делать force-push в общие ветки без договорённости.</p>
+<pre><code class="language-bash">git fetch origin
+git merge origin/main
+# или
+git rebase origin/main
+git status   # правим конфликты, затем:
+git add &lt;files&gt;
+git rebase --continue
+</code></pre>
+<hr />
+<h2 id="7-docker">Тема 7. Docker: основы контейнеров</h2>
+<p><strong>Контейнер</strong> — изолированный процесс на общем ядре Linux (через <strong>namespaces</strong> — пространства имён, и <strong>cgroups</strong>). Это не полноценная VM.</p>
+<h3 id="1_1">Вопрос 1. Чем контейнер отличается от виртуальной машины?</h3>
+<p>VM — своё ядро и гипервизор; контейнер — изоляция процессов на хостовом ядре, легче и быстрее стартует.</p>
+<pre><code class="language-bash">docker run --rm -it alpine uname -a
+docker inspect &lt;container&gt; --format '{{.State.Pid}}'
+ps -fp $(docker inspect -f '{{.State.Pid}}' &lt;container&gt;)
+</code></pre>
+<h3 id="2_2">Вопрос 2. Контейнер сразу падает. Как отладите?</h3>
+<p>Логи, exit code, <code>docker inspect</code>, запуск с shell/override entrypoint, проверка volume/env/сети.</p>
+<pre><code class="language-bash">docker ps -a
+docker logs --tail 100 &lt;container&gt;
+docker inspect &lt;container&gt; | less
+docker run --rm -it --entrypoint /bin/sh &lt;image&gt;
+</code></pre>
+<hr />
+<h2 id="8-dockerfile">Тема 8. Dockerfile и образы</h2>
+<p><strong>Образ</strong> — слоистая файловая система + метаданные. <strong>Layer cache</strong> — переиспользование слоёв при сборке. <strong>Multi-stage build</strong> — сборка в одном stage, runtime-артефакт в другом (меньше итоговый образ).</p>
+<h3 id="1-cmd-entrypoint">Вопрос 1. Чем CMD отличается от ENTRYPOINT?</h3>
+<p><strong>ENTRYPOINT</strong> — основная команда контейнера. <strong>CMD</strong> — аргументы по умолчанию (или команда, если ENTRYPOINT нет). Аргументы <code>docker run</code> обычно заменяют CMD, но не ENTRYPOINT.</p>
+<pre><code class="language-dockerfile">ENTRYPOINT [&quot;python&quot;, &quot;app.py&quot;]
+CMD [&quot;--port&quot;, &quot;8080&quot;]
+</code></pre>
+<pre><code class="language-bash">docker run --rm myapp --port 9090
+docker history myapp:latest
+</code></pre>
+<h3 id="2_3">Вопрос 2. Как уменьшить размер образа и ускорить сборку?</h3>
+<p>Правильный порядок слоёв (редко меняющееся — выше), multi-stage, <code>.dockerignore</code>, очистка кэша пакетного менеджера в том же <code>RUN</code>, минимальный base image.</p>
+<pre><code class="language-bash">docker build -t myapp:1 .
+docker images myapp
+dive myapp:1            # если установлен: анализ слоёв
+</code></pre>
+<hr />
+<h2 id="9-kubernetes">Тема 9. Kubernetes: архитектура</h2>
+<p><strong>Kubernetes (K8s)</strong> — оркестратор контейнеров. <strong>Control plane</strong> — API Server, etcd, Scheduler, Controller Manager. <strong>Worker node</strong> — kubelet, контейнерный runtime, kube-proxy (или CNI/eBPF).</p>
+<h3 id="1-kubernetes">Вопрос 1. Из чего состоит кластер Kubernetes?</h3>
+<p>Опишите control plane vs nodes, роль <strong>etcd</strong> (хранилище состояния кластера), как <code>kubectl</code> ходит в API Server.</p>
+<pre><code class="language-bash">kubectl cluster-info
+kubectl get nodes -o wide
+kubectl get componentstatuses 2&gt;/dev/null || kubectl get --raw='/readyz?verbose'
+</code></pre>
+<h3 id="2-deployment-vs-statefulset-vs-daemonset">Вопрос 2. Deployment vs StatefulSet vs DaemonSet — когда что?</h3>
+<p><strong>Deployment</strong> — статeless-приложения, rolling update. <strong>StatefulSet</strong> — стабильные имена/диски (БД, очереди). <strong>DaemonSet</strong> — по одному поду на ноду (агенты логов/мониторинга).</p>
+<pre><code class="language-bash">kubectl get deploy,sts,ds -A
+kubectl describe deploy &lt;name&gt;
+</code></pre>
+<hr />
+<h2 id="10-kubernetes-pod-probes">Тема 10. Kubernetes: Pod, probes, ресурсы</h2>
+<p><strong>Pod</strong> — минимальная единица запуска (один или несколько контейнеров). <strong>Liveness probe</strong> — «жив ли процесс» (иначе рестарт). <strong>Readiness probe</strong> — «готов ли принимать трафик». <strong>Startup probe</strong> — защита медленного старта.</p>
+<h3 id="1-liveness-readiness">Вопрос 1. Чем liveness отличается от readiness?</h3>
+<p>Неправильный liveness на «долго думающий» эндпоинт → рестарты в цикле. Readiness только убирает под из Service endpoints.</p>
+<pre><code class="language-bash">kubectl get pods -o wide
+kubectl describe pod &lt;pod&gt;
+kubectl get endpoints &lt;service&gt;
+</code></pre>
+<h3 id="2-requests-limits-oomkilled">Вопрос 2. Что такое requests и limits? Что будет при OOMKilled?</h3>
+<p><strong>requests</strong> — гарантия/учёт для scheduler. <strong>limits</strong> — потолок. Превышение memory limit → <strong>OOMKilled</strong> (Out Of Memory). CPU limit — троттлинг, не всегда kill.</p>
+<pre><code class="language-bash">kubectl top pod
+kubectl describe pod &lt;pod&gt; | grep -A5 -E 'Limits|Requests|OOM|State'
+kubectl get pod &lt;pod&gt; -o jsonpath='{.status.containerStatuses[*].lastState.terminated.reason}{&quot;\n&quot;}'
+</code></pre>
+<hr />
+<h2 id="11-kubernetes">Тема 11. Kubernetes: сеть и типичные сбои</h2>
+<p><strong>Service</strong> — стабильный VIP/DNS к подам. <strong>Ingress</strong> — L7-вход (HTTP-маршрутизация). <strong>CNI</strong> (Container Network Interface) — плагин сети подов. <strong>CoreDNS</strong> — DNS внутри кластера.</p>
+<h3 id="1-dns">Вопрос 1. Как работает DNS внутри кластера?</h3>
+<p>Под резолвит <code>my-svc.my-ns.svc.cluster.local</code> через CoreDNS → ClusterIP Service → endpoints (IP подов).</p>
+<pre><code class="language-bash">kubectl -n kube-system get pods -l k8s-app=kube-dns
+kubectl run -it --rm debug --image=busybox:1.36 --restart=Never -- nslookup kubernetes-dns.kube-system
+kubectl get svc,endpoints &lt;svc&gt;
+</code></pre>
+<h3 id="2-pod-crashloopbackoff">Вопрос 2. Pod в CrashLoopBackOff — ваш чеклист?</h3>
+<p>Events → logs / previous logs → describe (probes, mounts, secrets) → ресурсы/OOM → конфиг/образ → сеть/зависимости.</p>
+<pre><code class="language-bash">kubectl describe pod &lt;pod&gt;
+kubectl logs &lt;pod&gt; --tail=200
+kubectl logs &lt;pod&gt; --previous
+kubectl get events --field-selector involvedObject.name=&lt;pod&gt; --sort-by=.lastTimestamp
+</code></pre>
+<hr />
+<h2 id="12-cicd">Тема 12. CI/CD</h2>
+<p><strong>CI</strong> (Continuous Integration) — автоматическая сборка/тесты на каждый коммит. <strong>CD</strong> (Continuous Delivery/Deployment) — автоматическая доставка/выкат. <strong>Pipeline</strong> — конвейер стадий (lint → test → build → push → deploy).</p>
+<h3 id="1_2">Вопрос 1. Опишите пайплайн «от коммита до прода» для вашего сервиса.</h3>
+<p>Стадии, артефакты (образ с тегом commit SHA), окружения, ручные approval, откат.</p>
+<pre><code class="language-bash"># примеры локальной проверки «как в CI»
+docker build -t myapp:$GIT_SHA .
+docker run --rm myapp:$GIT_SHA pytest -q
+</code></pre>
+<h3 id="2-blue-green-vs-canary-vs-rolling">Вопрос 2. Blue-Green vs Canary vs Rolling — плюсы и минусы?</h3>
+<p><strong>Rolling</strong> — постепенная замена (просто, но смешанные версии). <strong>Blue-Green</strong> — два окружения, мгновенный switch/rollback (дорого по ресурсам). <strong>Canary</strong> — малый % трафика на новую версию (нужен хороший мониторинг).</p>
+<pre><code class="language-bash">kubectl rollout status deploy/&lt;name&gt;
+kubectl rollout history deploy/&lt;name&gt;
+kubectl rollout undo deploy/&lt;name&gt;
+</code></pre>
+<hr />
+<h2 id="13-infrastructure-as-code-terraform">Тема 13. Infrastructure as Code: Terraform</h2>
+<p><strong>IaC</strong> (Infrastructure as Code) — инфраструктура описывается кодом и применяется автоматически. <strong>Terraform</strong> — инструмент declarative IaC (провайдеры AWS/GCP/Azure и др.). <strong>State</strong> — снимок того, что Terraform считает созданным.</p>
+<h3 id="1-terraform-ansible">Вопрос 1. Чем Terraform отличается от Ansible?</h3>
+<p>Terraform чаще про <strong>создание</strong> облачных ресурсов (declarative, state). Ansible — чаще <strong>конфигурация</strong> ОС/ПО (procedural playbooks, agentless по SSH). На практике часто используют вместе.</p>
+<pre><code class="language-bash">terraform init
+terraform plan
+terraform apply
+terraform state list
+</code></pre>
+<h3 id="2-state">Вопрос 2. Что такое state и почему его нельзя хранить «как попало»?</h3>
+<p>В state есть ID ресурсов и иногда секреты. Нужны remote state (S3/GCS + блокировка), ограничение доступа, backend encryption. Drift — расхождение реальности и state.</p>
+<pre><code class="language-bash">terraform plan -detailed-exitcode
+terraform refresh   # осторожно в проде; лучше plan и разбор drift
+</code></pre>
+<hr />
+<h2 id="14-ansible">Тема 14. Конфигурация: Ansible</h2>
+<p><strong>Ansible</strong> — система управления конфигурацией без агента: control node подключается по SSH и применяет <strong>playbook</strong> (YAML-сценарий).</p>
+<h3 id="1_3">Вопрос 1. Идемпотентность — что это и зачем?</h3>
+<p>Повторный запуск playbook приводит систему к тому же желаемому состоянию, не ломая уже настроенное.</p>
+<pre><code class="language-bash">ansible all -m ping -i inventory.ini
+ansible-playbook -i inventory.ini site.yml --check   # dry-run
+ansible-playbook -i inventory.ini site.yml --limit web
+</code></pre>
+<h3 id="2_4">Вопрос 2. Как организуете роли и секреты?</h3>
+<p>Roles/collections, group_vars/host_vars, Ansible Vault или внешний secret manager (не коммитить пароли в git).</p>
+<pre><code class="language-bash">ansible-vault encrypt group_vars/prod/vault.yml
+ansible-vault view group_vars/prod/vault.yml
+</code></pre>
+<hr />
+<h2 id="15-observability">Тема 15. Мониторинг и observability</h2>
+<p><strong>Observability</strong> — способность понять состояние системы по внешним сигналам. Три столпа: <strong>metrics</strong> (метрики), <strong>logs</strong> (логи), <strong>traces</strong> (трассировки). Часто стек: <strong>Prometheus</strong> (сбор метрик) + <strong>Grafana</strong> (дашборды) + Loki/ELK для логов.</p>
+<h3 id="1-http-">Вопрос 1. Какие метрики «золотых сигналов» смотрите для HTTP-сервиса?</h3>
+<p>Latency, traffic, errors, saturation (по Google SRE). Плюс RED (Rate, Errors, Duration) для сервисов.</p>
+<pre><code class="language-bash"># примеры локальной проверки экспортера
+curl -s localhost:9090/metrics | head
+curl -s localhost:9100/metrics | grep -E 'node_cpu|node_memory' | head
+</code></pre>
+<h3 id="2_5">Вопрос 2. Как отличить симптом от причины в алерте?</h3>
+<p>Алерт «5xx выросли» — симптом. Дальше: была ли выкладка, зависимость (БД/кэш), saturation ноды, ошибки в логах, изменение трафика.</p>
+<pre><code class="language-bash"># корреляция по времени выкладки и событиям K8s
+kubectl get events -A --sort-by=.lastTimestamp | tail -30
+</code></pre>
+<hr />
+<h2 id="16-aws">Тема 16. Облако (часто AWS как пример)</h2>
+<p><strong>VPC</strong> (Virtual Private Cloud) — изолированная сеть в облаке. <strong>IAM</strong> (Identity and Access Management) — кто что может. <strong>AZ</strong> (Availability Zone) — изолированная зона доступности в регионе.</p>
+<h3 id="1-">Вопрос 1. Как спроектируете публичный веб-сервис в облаке?</h3>
+<p>Публичный ALB/NLB → private subnet с compute (ASG/EKS) → private DB subnet; NAT для исходящего; Security Groups по принципу least privilege; Multi-AZ.</p>
+<pre><code class="language-bash"># пример AWS CLI (если настроен профиль)
+aws sts get-caller-identity
+aws ec2 describe-instances --filters Name=instance-state-name,Values=running --query 'Reservations[].Instances[].InstanceId'
+</code></pre>
+<h3 id="2-private-subnet">Вопрос 2. Как безопасно зайти на инстанс в private subnet?</h3>
+<p>Bastion / SSM Session Manager (предпочтительнее открытого SSH 0.0.0.0/0), короткоживущие доступы, audit trail.</p>
+<pre><code class="language-bash">aws ssm start-session --target i-0123456789abcdef0
+</code></pre>
+<hr />
+<h2 id="17">Тема 17. Безопасность и секреты</h2>
+<p><strong>Secret</strong> — чувствительные данные (пароли, токены, ключи). <strong>RBAC</strong> (Role-Based Access Control) — доступ по ролям. <strong>Least privilege</strong> — минимум необходимых прав.</p>
+<h3 id="1-env">Вопрос 1. Почему env с паролями — плохая идея и что лучше?</h3>
+<p>Env виден в <code>docker inspect</code>, <code>/proc</code>, часто попадает в логи/дампы. Лучше: Vault / cloud secret manager / sealed secrets / CSI drivers; ротация; не писать секреты в образ и git.</p>
+<pre><code class="language-bash"># плохо: секрет в истории образа / env
+docker inspect &lt;container&gt; --format '{{range .Config.Env}}{{println .}}{{end}}'
+# в K8s секреты всё равно base64, не «шифрование»
+kubectl get secret &lt;name&gt; -o yaml
+</code></pre>
+<h3 id="2-kubernetes">Вопрос 2. Как ограничить права сервиса в Kubernetes?</h3>
+<p>ServiceAccount + Role/RoleBinding, запрет privileged, read-only root FS, drop capabilities, NetworkPolicy, admission policies.</p>
+<pre><code class="language-bash">kubectl auth can-i list secrets --as=system:serviceaccount:default:my-sa
+kubectl get sa,role,rolebinding -n &lt;ns&gt;
+</code></pre>
+<hr />
+<h2 id="18-sre">Тема 18. SRE, инциденты, надёжность</h2>
+<p><strong>SRE</strong> (Site Reliability Engineering) — инженерия надёжности сервисов. <strong>SLA/SLO/SLI</strong> — договорённость / целевой уровень / индикатор. <strong>MTTR</strong> — среднее время восстановления. <strong>Postmortem</strong> — разбор инцидента без поиска виноватых.</p>
+<h3 id="1_4">Вопрос 1. Как ведёте себя при ночном инциденте?</h3>
+<p>Стабилизировать (mitigate) → коммуникация → диагностика → fix → мониторинг → postmortem и action items.</p>
+<pre><code class="language-bash"># быстрый «пульс» сервиса
+curl -sI https://app.example.com/healthz
+kubectl get pods -n prod
+kubectl top nodes
+</code></pre>
+<h3 id="2-error-budget">Вопрос 2. Что такое error budget и зачем он нужен?</h3>
+<p><strong>Error budget</strong> — допустимая доля ошибок/даунтайма в рамках SLO. Если бюджет исчерпан — тормозим фичи, чиним надёжность.</p>
+<hr />
+<h2 id="19">Тема 19. Балансировка и высокая доступность</h2>
+<p><strong>Load balancer</strong> — распределение трафика. <strong>Reverse proxy</strong> — прокси «перед» бэкендами (TLS, кэш, маршрутизация). <strong>HA</strong> (High Availability) — устойчивость к отказу узлов. <strong>L4</strong> — по IP/порту; <strong>L7</strong> — по HTTP-заголовкам/пути.</p>
+<h3 id="1-l4-l7">Вопрос 1. Чем L4-балансировка отличается от L7?</h3>
+<p>L4 быстрее и проще; L7 умнее (path-based routing, canary по заголовку), но дороже по CPU и сложнее.</p>
+<pre><code class="language-bash"># локальный пример проверки бэкендов за nginx
+curl -sI http://127.0.0.1/health
+nginx -t &amp;&amp; systemctl reload nginx
+</code></pre>
+<h3 id="2-zero-downtime">Вопрос 2. Как обеспечите zero-downtime деплой?</h3>
+<p>Readiness probes, rolling/canary, graceful shutdown (SIGTERM), connection draining, миграции БД backward-compatible, быстрый rollback.</p>
+<pre><code class="language-bash">kubectl set image deploy/myapp myapp=registry/myapp:1.2.3
+kubectl rollout status deploy/myapp
+</code></pre>
+<hr />
+<h2 id="20-devops">Тема 20. Базы данных глазами DevOps</h2>
+<p>Не «напишите сложный SQL», а доступность: бэкапы, репликация, миграции, диски, соединения.</p>
+<h3 id="1-vs-trade-off">Вопрос 1. Синхронная vs асинхронная репликация — trade-off?</h3>
+<p>Синхронная — меньше риск потери данных, выше latency записи. Асинхронная — быстрее запись, риск lag и потери при падении primary.</p>
+<pre><code class="language-bash"># PostgreSQL: грубая проверка репликации (на primary/replica)
+psql -c &quot;SELECT client_addr, state, sync_state FROM pg_stat_replication;&quot;
+psql -c &quot;SELECT pg_is_in_recovery();&quot;
+</code></pre>
+<h3 id="2-cicd">Вопрос 2. Как встроить миграции БД в CI/CD без даунтайма?</h3>
+<p>Expand/contract: сначала совместимые с старой версией изменения → выкат приложения → удаление старого. Бэкап/rollback plan до миграции. Не делать breaking change в одном шаге с деплоем, который это требует.</p>
+<pre><code class="language-bash"># пример идеи, не привязанной к конкретному инструменту
+pg_dump -Fc -f backup_$(date +%F).dump mydb
+# migrate up (flyway/liquibase/alembic — по стеку команды)
+</code></pre>
+<hr />
+<h2 id="_1">Чеклист перед собеседованием</h2>
+<ul>
+<li>[ ] 5 историй из опыта (инцидент, ускорение пайплайна, экономия $, миграция, security fix)</li>
+<li>[ ] Уметь вслух пройтись по <code>curl https://...</code> и по CrashLoopBackOff</li>
+<li>[ ] Локально поднять mini-lab: Docker Compose или kind/minikube и «сломать/починить»</li>
+<li>[ ] Повторить команды: <code>ps</code>/<code>top</code>/<code>ss</code>/<code>journalctl</code>, <code>docker logs/inspect</code>, <code>kubectl describe/logs/rollout</code></li>
+<li>[ ] Подготовить вопросы работодателю: on-call, стек, размер кластера, как измеряют успех DevOps</li>
+</ul>
+<h2 id="_2">Полезные ориентиры для углубления</h2>
+<ul>
+<li>Подборки реальных вопросов DevOps/SRE 2026 (Linux, Docker, Kubernetes, CI/CD, IaC)</li>
+<li>Репозитории вроде DevOps Interview Questions / hands-on DevOps interview tasks</li>
+<li>Разборы этапов собеседований (HR → Linux/сеть → K8s → архитектура)</li>
+<li>Официальная документация: Kubernetes docs, Docker docs, Terraform docs</li>
+</ul>
+<hr />
+<p><em>Документ учебный: адаптируйте глубину ответов под Junior / Middle / Senior и под стек вакансии (AWS vs GCP, GitLab CI vs GitHub Actions, Ansible vs Salt и т.д.).</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

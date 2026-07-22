@@ -1,0 +1,2080 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://9159340.github.io/devops/linuxdevops/linux-plan-dim/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../linux-lectures/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Plan - Devops wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Devops wiki" class="md-header__button md-logo" aria-label="Devops wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Devops wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Plan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Переключить на тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Переключить на светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Devops wiki" class="md-nav__button md-logo" aria-label="Devops wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Devops wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systemd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LinuxDevops
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LinuxDevops
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Архитектура ОС и загрузка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ядро
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Устройства
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Файловая система и хранилище
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ipc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Процессы и IPC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. systemd
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Пользователи, доступ, безопасность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Сеть: основы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. DNS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. DHCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Namespaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-cgroups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. cgroups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Управление ресурсами (resource management)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Траблшутинг: методология и утилиты
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Эксплуатация: пакеты и обслуживание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как учить
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux-lectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Краткие лекции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Детальные лекции
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Детальные лекции
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/01-architektura-os-zagruzka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Архитектура и загрузка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/02-yadro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Ядро
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/03-ustrojstva/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Устройства
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/04-fajlovaya-sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Файловая система
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/05-processy-ipc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Процессы и IPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/06-systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. systemd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/07-polzovateli-bezopasnost/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Безопасность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/08-set-osnovy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Сеть
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/09-dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/10-dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/11-namespaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Namespaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/12-cgroups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. cgroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/13-upravlenie-resursami/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Ресурсы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/14-trablshuting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Траблшутинг
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lectures/15-ekspluataciya/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Эксплуатация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/worktree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worktree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kafka
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview/devops-interview-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План собеседования
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Архитектура ОС и загрузка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ядро
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Устройства
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Файловая система и хранилище
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ipc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Процессы и IPC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. systemd
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Пользователи, доступ, безопасность
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Сеть: основы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. DNS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. DHCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Namespaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-cgroups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. cgroups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Управление ресурсами (resource management)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Траблшутинг: методология и утилиты
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Эксплуатация: пакеты и обслуживание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как учить
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>start</p>
+<h1 id="linux">Linux: список тем для изучения</h1>
+<p>Дорожная карта от основ к продвинутому. 
+К темам добавлены якорные команды и файлы, чтобы было за что зацепиться на практике. 
+Пометка <em>(обзорно)</em> — достаточно понимать концепцию, без глубокого погружения. 
+Разделы 11–13 — фундамент контейнеров и Kubernetes.</p>
+<hr />
+<h2 id="1">1. Архитектура ОС и загрузка</h2>
+<ul>
+<li>[ ] Ядро vs пользовательское пространство; системные вызовы, роль libc</li>
+<li>[ ] Процесс загрузки: BIOS/UEFI → GRUB2 → ядро + initramfs → systemd (PID 1)</li>
+<li>[ ] GRUB: конфигурация, параметры ядра (<code>/etc/default/grub</code>, <code>grub2-mkconfig</code>, <code>cat /proc/cmdline</code>)</li>
+<li>[ ] initramfs: зачем нужен, пересборка (<code>dracut</code> в RHEL, <code>update-initramfs</code> в Ubuntu)</li>
+<li>[ ] Runlevels → systemd targets: multi-user, graphical, rescue, emergency</li>
+<li>[ ] Семейства дистрибутивов, жизненный цикл релизов (LTS, Stream, EOL)</li>
+</ul>
+<h2 id="2">2. Ядро</h2>
+<ul>
+<li>[ ] Версии ядра (<code>uname -r</code>), обновление, несколько установленных ядер параллельно</li>
+<li>[ ] Модули: загрузка/выгрузка, параметры, автозагрузка, blacklist (<code>lsmod</code>, <code>modprobe</code>, <code>modinfo</code>, <code>/etc/modprobe.d/</code>, <code>/etc/modules-load.d/</code>)</li>
+<li>[ ] Параметры ядра на лету и персистентно: <code>sysctl</code>, <code>/proc/sys/</code>, <code>/etc/sysctl.d/</code></li>
+<li>[ ] Сообщения ядра: кольцевой буфер, <code>dmesg -T</code>, <code>journalctl -k</code></li>
+<li>[ ] Kernel panic, magic SysRq, kdump <em>(обзорно)</em></li>
+<li>[ ] OOM killer: когда срабатывает, <code>oom_score</code>, <code>oom_score_adj</code></li>
+<li>[ ] Виртуальная память в двух словах: страницы, page cache, swap</li>
+<li>[ ] eBPF: что это и почему на нём построены современная observability и сеть <em>(обзорно)</em></li>
+</ul>
+<h2 id="3">3. Устройства</h2>
+<ul>
+<li>[ ] «Всё — файл»: <code>/dev</code>, блочные vs символьные устройства, major/minor номера</li>
+<li>[ ] udev: как появляются устройства, правила, <code>udevadm info/monitor/trigger</code></li>
+<li>[ ] sysfs (<code>/sys</code>): устройства, драйверы, классы</li>
+<li>[ ] Инвентаризация железа: <code>lspci</code>, <code>lsusb</code>, <code>lsblk</code>, <code>lscpu</code>, <code>lshw</code>, <code>dmidecode</code></li>
+<li>[ ] Драйвер = модуль ядра; сопоставление устройства и драйвера (<code>lspci -k</code>)</li>
+<li>[ ] Псевдоустройства: <code>/dev/null</code>, <code>/dev/zero</code>, <code>/dev/urandom</code>, loop-устройства (<code>losetup</code>)</li>
+<li>[ ] Терминалы: tty vs pts <em>(обзорно)</em></li>
+</ul>
+<h2 id="4">4. Файловая система и хранилище</h2>
+<ul>
+<li>[ ] FHS: назначение каталогов</li>
+<li>[ ] inode; жёсткие и символические ссылки; atime/mtime/ctime</li>
+<li>[ ] Права rwx, числовая запись, umask; SUID/SGID/sticky</li>
+<li>[ ] Расширенные права: ACL (<code>getfacl</code>/<code>setfacl</code>), атрибуты <code>chattr</code>/<code>lsattr</code> (immutable)</li>
+<li>[ ] Типы ФС: ext4, xfs, btrfs; псевдо-ФС: tmpfs, proc, sysfs; <strong>overlayfs</strong> — основа контейнерных образов</li>
+<li>[ ] Разметка: MBR vs GPT, <code>fdisk</code>/<code>gdisk</code>/<code>parted</code></li>
+<li>[ ] Монтирование: <code>mount</code>, <code>/etc/fstab</code>, опции (<code>noatime</code>, <code>ro</code>), bind mounts</li>
+<li>[ ] LVM: PV/VG/LV, расширение томов, снапшоты; thin provisioning <em>(обзорно)</em></li>
+<li>[ ] Программный RAID: <code>mdadm</code>, уровни 0/1/5/10 <em>(обзорно)</em></li>
+<li>[ ] Swap: раздел vs файл, <code>vm.swappiness</code></li>
+<li>[ ] Обслуживание: <code>fsck</code>, <code>xfs_repair</code>; исчерпание inodes (<code>df -i</code>)</li>
+<li>[ ] Сетевые ФС: NFS, autofs <em>(обзорно)</em></li>
+</ul>
+<h2 id="5-ipc">5. Процессы и IPC</h2>
+<ul>
+<li>[ ] Жизненный цикл: fork/exec, exit code, wait; зомби и сироты</li>
+<li>[ ] Состояния R/S/D/Z/T; что означает D-state и почему такой процесс не убить</li>
+<li>[ ] Сигналы: основные номера, обработка, чем KILL/STOP отличаются от остальных</li>
+<li>[ ] Приоритеты: nice/renice; планировщик CPU (CFS/EEVDF) <em>(обзорно)</em></li>
+<li>[ ] Потоки vs процессы; как видеть потоки (<code>ps -eLf</code>, <code>/proc/&lt;pid&gt;/task</code>)</li>
+<li>[ ] Файловые дескрипторы: stdin/stdout/stderr, <code>/proc/&lt;pid&gt;/fd</code>, лимит nofile</li>
+<li>[ ] Сессии и группы процессов; демонизация; что делает <code>nohup</code>/<code>setsid</code></li>
+<li>[ ] IPC: pipe/FIFO, unix-сокеты, shared memory, семафоры, очереди (<code>ipcs</code>)</li>
+<li>[ ] Окружение процесса: env-переменные, <code>/proc/&lt;pid&gt;/environ</code>, <code>/proc/&lt;pid&gt;/cwd</code></li>
+</ul>
+<h2 id="6-systemd">6. systemd</h2>
+<ul>
+<li>[ ] Архитектура: PID 1, юниты, дерево зависимостей, параллельный запуск</li>
+<li>[ ] Типы юнитов: service, socket, timer, target, mount/automount, path, slice, scope</li>
+<li>[ ] Анатомия service-юнита: секции [Unit]/[Service]/[Install]; <code>Type=</code> simple/exec/forking/oneshot/notify</li>
+<li>[ ] Зависимости и порядок: Requires/Wants vs After/Before; <code>WantedBy</code> и механика <code>enable</code></li>
+<li>[ ] Политики перезапуска: <code>Restart=</code>, <code>RestartSec</code>, <code>StartLimitBurst/Interval</code></li>
+<li>[ ] Переопределения без правки пакетных файлов: drop-in'ы, <code>systemctl edit</code>, <code>daemon-reload</code></li>
+<li>[ ] Написать свой юнит с нуля: EnvironmentFile, ExecStartPre, WorkingDirectory</li>
+<li>[ ] journald: фильтры <code>journalctl -u/-p/--since/-b</code>, персистентное хранение, лимиты и ротация</li>
+<li>[ ] Таймеры vs cron: <code>OnCalendar</code>, <code>Persistent=</code>, <code>systemctl list-timers</code></li>
+<li>[ ] Ресурсные лимиты в юнитах: <code>CPUQuota</code>, <code>MemoryMax</code>, <code>TasksMax</code>, <code>LimitNOFILE</code> (мост к cgroups)</li>
+<li>[ ] Sandboxing юнитов: <code>User=</code>, <code>ProtectSystem</code>, <code>PrivateTmp</code>, <code>CapabilityBoundingSet</code> <em>(обзорно)</em></li>
+<li>[ ] Диагностика загрузки: <code>systemd-analyze blame</code>, <code>critical-chain</code></li>
+<li>[ ] Спутники: systemd-resolved, systemd-networkd, logind <em>(обзорно)</em></li>
+</ul>
+<h2 id="7">7. Пользователи, доступ, безопасность</h2>
+<ul>
+<li>[ ] Пользователи и группы: <code>/etc/passwd</code>, <code>/etc/shadow</code>, <code>/etc/group</code>; UID/GID, системные vs обычные</li>
+<li>[ ] sudo и sudoers (<code>visudo</code>, <code>/etc/sudoers.d/</code>); su vs sudo</li>
+<li>[ ] PAM: за что отвечает стек аутентификации <em>(обзорно)</em></li>
+<li>[ ] SSH: ключи, <code>sshd_config</code> и hardening, agent, ProxyJump</li>
+<li>[ ] Linux capabilities: зачем дробить root (CAP_NET_BIND_SERVICE, CAP_SYS_ADMIN...), <code>getcap</code>/<code>setcap</code> — критично для контейнеров</li>
+<li>[ ] SELinux (RHEL): режимы, контексты (<code>ls -Z</code>), booleans, <code>restorecon</code>, разбор audit-логов; AppArmor (Ubuntu)</li>
+<li>[ ] seccomp: фильтрация syscall'ов, роль в контейнерах <em>(обзорно)</em></li>
+</ul>
+<h2 id="8">8. Сеть: основы</h2>
+<ul>
+<li>[ ] Модель TCP/IP, инкапсуляция; MTU и фрагментация</li>
+<li>[ ] L2: Ethernet, MAC, ARP; VLAN (802.1Q), bridge, bonding</li>
+<li>[ ] L3: адресация и CIDR, таблица маршрутов, default gateway; policy routing (<code>ip rule</code>) <em>(обзорно)</em></li>
+<li>[ ] TCP: 3-way handshake, состояния соединения (особенно TIME_WAIT), ретрансмиты; UDP</li>
+<li>[ ] Сокеты: listen backlog, ephemeral-порты</li>
+<li>[ ] NAT и conntrack</li>
+<li>[ ] netfilter: iptables (таблицы и цепочки) и nftables</li>
+<li>[ ] Конфигурация: netplan (Ubuntu), NetworkManager/<code>nmcli</code> (RHEL), systemd-networkd</li>
+<li>[ ] Рабочий набор: <code>ip</code>, <code>ss</code>, <code>ethtool</code>, <code>tcpdump</code>, <code>nc</code></li>
+</ul>
+<h2 id="9-dns">9. DNS</h2>
+<ul>
+<li>[ ] Иерархия: root → TLD → авторитативные серверы; делегирование через NS</li>
+<li>[ ] Рекурсивный резолвер vs авторитативный сервер; forwarders</li>
+<li>[ ] Типы записей: A/AAAA, CNAME, NS, SOA, MX, TXT, PTR, SRV</li>
+<li>[ ] TTL, кэширование, негативное кэширование</li>
+<li>[ ] Путь запроса на хосте: <code>nsswitch.conf</code> → <code>/etc/hosts</code> → <code>/etc/resolv.conf</code> → systemd-resolved (stub 127.0.0.53)</li>
+<li>[ ] Отладка: <code>dig</code> (<code>+short</code>, <code>+trace</code>, <code>@server</code>), <code>resolvectl status/query</code></li>
+<li>[ ] Обратные зоны (PTR) и где они реально нужны</li>
+<li>[ ] Search-домены и <code>ndots</code> — источник классических проблем в Kubernetes</li>
+<li>[ ] Свой резолвер: dnsmasq / unbound / bind <em>(обзорно)</em>; DNSSEC, DoT/DoH <em>(обзорно)</em></li>
+</ul>
+<h2 id="10-dhcp">10. DHCP</h2>
+<ul>
+<li>[ ] Процесс DORA: Discover → Offer → Request → Ack; почему broadcast</li>
+<li>[ ] Аренда (lease): T1/T2, renew vs rebind, release</li>
+<li>[ ] Опции: 3 (router), 6 (DNS), 51 (lease time), 66/67 (PXE), 43 (vendor-specific)</li>
+<li>[ ] Клиентская сторона: dhclient / NetworkManager / systemd-networkd; где лежат lease-файлы</li>
+<li>[ ] Статические привязки по MAC vs статическая конфигурация интерфейса</li>
+<li>[ ] DHCP relay (ip helper) — зачем в маршрутизируемых сетях</li>
+<li>[ ] Серверы: dnsmasq, ISC dhcpd → Kea <em>(обзорно)</em></li>
+<li>[ ] Отладка: логи клиента/сервера, <code>tcpdump -i any port 67 or port 68 -nn</code></li>
+<li>[ ] IPv6: DHCPv6 vs SLAAC <em>(обзорно)</em></li>
+</ul>
+<h2 id="11-namespaces">11. Namespaces</h2>
+<ul>
+<li>[ ] Идея изоляции; типы: pid, net, mnt, uts, ipc, user, cgroup, time</li>
+<li>[ ] Где смотреть: <code>/proc/&lt;pid&gt;/ns/</code>, <code>lsns</code></li>
+<li>[ ] Инструменты: <code>unshare</code> (создать), <code>nsenter</code> (войти — в т.ч. в namespace контейнера)</li>
+<li>[ ] Network namespaces: <code>ip netns</code>, veth-пары, связка с bridge — собрать «контейнерную» сеть руками</li>
+<li>[ ] mount namespace и propagation: shared/slave/private</li>
+<li>[ ] user namespace: маппинг UID, rootless-контейнеры</li>
+<li>[ ] Итог: как из namespaces + cgroups + overlayfs складывается контейнер</li>
+</ul>
+<h2 id="12-cgroups">12. cgroups</h2>
+<ul>
+<li>[ ] Назначение: учёт и ограничение ресурсов для групп процессов</li>
+<li>[ ] v1 vs v2 (unified hierarchy); как определить версию на хосте (<code>mount | grep cgroup</code>)</li>
+<li>[ ] Иерархия <code>/sys/fs/cgroup</code>, интерфейсные файлы, перемещение процессов</li>
+<li>[ ] Контроллеры: cpu, memory, io, pids, cpuset</li>
+<li>[ ] Ключевые ручки: <code>cpu.max</code>, <code>cpu.weight</code>, <code>memory.max</code>/<code>high</code>/<code>current</code>, <code>pids.max</code>, <code>io.max</code></li>
+<li>[ ] События и OOM внутри cgroup: <code>memory.events</code></li>
+<li>[ ] systemd поверх cgroups: slices/scopes/services, <code>systemd-cgls</code>, <code>systemd-cgtop</code></li>
+<li>[ ] Как это использует Kubernetes: requests/limits → <code>cpu.weight</code>/<code>cpu.max</code>, QoS-классы, kubepods-слайсы</li>
+</ul>
+<h2 id="13-resource-management">13. Управление ресурсами (resource management)</h2>
+<ul>
+<li>[ ] CPU: load average vs утилизация; run queue; привязка к ядрам (<code>taskset</code>, cpuset)</li>
+<li>[ ] Память: RSS vs VSZ; page cache и buffers («куда делась память»); <code>drop_caches</code></li>
+<li>[ ] Swap и <code>vm.swappiness</code>; overcommit (<code>vm.overcommit_memory</code>)</li>
+<li>[ ] OOM: глобальный vs cgroup-OOM; защита процессов через <code>oom_score_adj</code></li>
+<li>[ ] Huge pages / THP <em>(обзорно)</em></li>
+<li>[ ] I/O: планировщики (none / mq-deadline / bfq), <code>ionice</code></li>
+<li>[ ] Лимиты: <code>ulimit</code> и <code>limits.conf</code> vs systemd <code>LimitNOFILE</code>/<code>TasksMax</code> — что кого перекрывает</li>
+<li>[ ] PSI (Pressure Stall Information): <code>/proc/pressure/{cpu,memory,io}</code> — современная метрика насыщения</li>
+<li>[ ] NUMA: <code>numactl</code>, <code>numastat</code> <em>(обзорно)</em></li>
+</ul>
+<h2 id="14">14. Траблшутинг: методология и утилиты</h2>
+<ul>
+<li>[ ] Методология USE (Utilization / Saturation / Errors) и «60-second analysis» Брендана Грегга</li>
+<li>[ ] Первые 60 секунд: <code>uptime</code>, <code>dmesg -T | tail</code>, <code>vmstat 1</code>, <code>top</code>/<code>htop</code></li>
+<li>[ ] CPU: <code>mpstat -P ALL 1</code>, <code>pidstat 1</code>, <code>perf top</code> <em>(обзорно)</em></li>
+<li>[ ] Память: <code>free -h</code>, <code>/proc/meminfo</code>, <code>pmap -x &lt;pid&gt;</code>, <code>smem</code></li>
+<li>[ ] Диск и ФС: <code>iostat -x 1</code>, <code>iotop</code>, <code>df -h</code>/<code>-i</code>, <code>du -xsh</code>, <code>lsof +D</code></li>
+<li>[ ] Сеть: <code>ss -s</code>/<code>-tanp</code>, <code>ping</code>/<code>mtr</code>, <code>tcpdump</code>, <code>ethtool -S</code>, <code>nstat</code>, <code>conntrack -L</code></li>
+<li>[ ] Процессы: <code>strace -f -e trace=%network</code>, <code>ltrace</code>, <code>lsof -p</code>, <code>/proc/&lt;pid&gt;/{status,stack,fd,limits}</code></li>
+<li>[ ] «Кто держит файл / порт / точку монтирования»: <code>lsof</code>, <code>fuser -vm</code></li>
+<li>[ ] Логи: <code>journalctl</code> (<code>-k</code>, <code>-p err</code>, <code>--since</code>), <code>/var/log/</code>, logrotate</li>
+<li>[ ] Историческая картина: <code>sar</code> (sysstat), <code>atop</code> (пишет историю), <code>dstat</code></li>
+<li>[ ] eBPF-инструментарий: bcc-tools (<code>execsnoop</code>, <code>opensnoop</code>, <code>biolatency</code>, <code>tcplife</code>), bpftrace</li>
+<li>[ ] Типовые кейсы разобрать руками: df показывает свободно, а места нет (удалённый открытый файл); кончились inodes; процесс в D-state; шторм TIME_WAIT; сработал OOM — найти жертву и причину</li>
+</ul>
+<h2 id="15">15. Эксплуатация: пакеты и обслуживание</h2>
+<ul>
+<li>[ ] apt/dpkg и dnf/rpm: поиск, установка, откат, фиксация версий (hold / versionlock)</li>
+<li>[ ] Репозитории: sources.list, .repo-файлы, GPG-ключи</li>
+<li>[ ] Автообновления безопасности: unattended-upgrades / dnf-automatic</li>
+<li>[ ] Обновление ядра и планирование перезагрузок; needrestart</li>
+<li>[ ] Время: chrony, <code>timedatectl</code>, таймзоны — и почему рассинхрон ломает TLS и кластеры</li>
+<li>[ ] Ротация логов: logrotate, лимиты journald</li>
+</ul>
+<hr />
+<h2 id="_1">Как учить</h2>
+<p>По каждой теме цикл: прочитать → воспроизвести руками на ВМ → сломать → починить. Идеи практики: собрать сеть из network namespace + veth + NAT; написать systemd-юнит с MemoryMax и поймать cgroup-OOM; поднять dnsmasq как DHCP+DNS и посмотреть DORA в tcpdump; отладить «подвисший» процесс через strace/lsof.</p>
+<p>Опорные ресурсы: «How Linux Works» (Brian Ward), «Systems Performance» (Brendan Gregg), man7.org, документация Red Hat / Arch Wiki.</p>
+<p>end</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

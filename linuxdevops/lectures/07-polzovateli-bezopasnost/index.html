@@ -1,0 +1,2409 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://9159340.github.io/devops/linuxdevops/lectures/07-polzovateli-bezopasnost/">
+      
+      
+        <link rel="prev" href="../06-systemd/">
+      
+      
+        <link rel="next" href="../08-set-osnovy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>7. Безопасность - Devops wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../.." title="Devops wiki" class="md-header__button md-logo" aria-label="Devops wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Devops wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Безопасность
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Переключить на тёмную тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключить на тёмную тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Переключить на светлую тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключить на светлую тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Devops wiki" class="md-nav__button md-logo" aria-label="Devops wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Devops wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux/systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systemd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LinuxDevops
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LinuxDevops
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux-plan-dim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux-lectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Краткие лекции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Детальные лекции
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Детальные лекции
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-architektura-os-zagruzka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Архитектура и загрузка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-yadro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Ядро
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-ustrojstva/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Устройства
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-fajlovaya-sistema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Файловая система
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-processy-ipc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Процессы и IPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. systemd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Безопасность
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Безопасность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Учётные записи
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sudo-su" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sudo и su
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PAM (обзорно)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-keygen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Генерация ключа: ssh-keygen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-copy-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Копирование ключа на сервер: ssh-copy-id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подключение: ssh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardening-etcsshsshd_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardening сервера: /etc/ssh/sshd_config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxyjump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подключение через бастион: ProxyJump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-agent-ssh-agent-ssh-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH agent: ssh-agent и ssh-add
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Копирование файлов (кратко)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux capabilities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selinux-apparmor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SELinux и AppArmor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seccomp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        seccomp (обзорно)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Практика
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-set-osnovy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Сеть
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-namespaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Namespaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cgroups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. cgroups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-upravlenie-resursami/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Ресурсы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-trablshuting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Траблшутинг
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-ekspluataciya/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Эксплуатация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../git/worktree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worktree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kafka
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interview/devops-interview-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    План собеседования
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Учётные записи
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sudo-su" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sudo и su
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PAM (обзорно)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-keygen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Генерация ключа: ssh-keygen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-copy-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Копирование ключа на сервер: ssh-copy-id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подключение: ssh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardening-etcsshsshd_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardening сервера: /etc/ssh/sshd_config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxyjump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подключение через бастион: ProxyJump
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-agent-ssh-agent-ssh-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSH agent: ssh-agent и ssh-add
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Копирование файлов (кратко)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux capabilities
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selinux-apparmor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SELinux и AppArmor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seccomp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        seccomp (обзорно)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Практика
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="7">7. Пользователи, доступ, безопасность</h1>
+<p>Подробнее по <a href="../../linux-lectures/">краткой лекции</a> и <a href="../../linux-plan-dim/">плану изучения</a>.</p>
+<h2 id="_1">Учётные записи</h2>
+<table>
+<thead>
+<tr>
+<th>Файл</th>
+<th>Содержимое</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/etc/passwd</code></td>
+<td>Имя, UID, GID, домашний каталог, shell (пароль здесь не хранится)</td>
+</tr>
+<tr>
+<td><code>/etc/shadow</code></td>
+<td>Хеш пароля (только root)</td>
+</tr>
+<tr>
+<td><code>/etc/group</code></td>
+<td>Группы и их члены</td>
+</tr>
+</tbody>
+</table>
+<p><strong>UID</strong> (User ID) / <strong>GID</strong> (Group ID) — числовые идентификаторы.</p>
+<ul>
+<li>UID &lt; 1000 (или 999) — системные учётки (<code>root</code>=0, <code>nginx</code>, <code>sshd</code>).</li>
+<li>UID ≥ 1000 — обычные пользователи.</li>
+</ul>
+<pre><code class="language-bash">id
+id alice
+getent passwd alice
+getent group docker
+</code></pre>
+<pre><code class="language-bash"># Создание пользователя
+sudo useradd -m -s /bin/bash alice
+sudo passwd alice
+sudo usermod -aG docker alice    # добавить в группу
+</code></pre>
+<h2 id="sudo-su">sudo и su</h2>
+<p><strong>sudo</strong> (superuser do) — выполнить команду от другого пользователя (обычно root) с записью в аудит.</p>
+<p><strong>su</strong> (switch user) — сменить пользователя; нужен пароль целевого пользователя.</p>
+<pre><code class="language-bash">sudo whoami
+sudo -u postgres psql
+su - alice                # login shell целевого пользователя
+</code></pre>
+<p>Настройка sudo — только через <code>visudo</code> (проверяет синтаксис):</p>
+<pre><code class="language-bash">sudo visudo
+# или отдельные файлы:
+sudo visudo -f /etc/sudoers.d/alice
+</code></pre>
+<p>Пример правила:</p>
+<pre><code>alice ALL=(ALL) NOPASSWD: /bin/systemctl restart nginx
+</code></pre>
+<h2 id="pam">PAM (обзорно)</h2>
+<p><strong>PAM</strong> (Pluggable Authentication Modules) — стек проверки аутентификации: пароль, LDAP, 2FA, политики смены пароля. Конфиги в <code>/etc/pam.d/</code> (отдельный файл на сервис: <code>login</code>, <code>sshd</code>, <code>sudo</code>).</p>
+<p>Для DevOps достаточно знать: если «не пускает» при правильном пароле — смотреть <code>/etc/pam.d/</code> и логи.</p>
+<h2 id="ssh">SSH</h2>
+<p><strong>SSH</strong> (Secure Shell) — протокол и набор утилит для удалённого защищённого доступа: интерактивная оболочка, выполнение команд, копирование файлов (<code>scp</code>, <code>sftp</code>), туннели. По умолчанию слушает порт <strong>22</strong> (TCP).</p>
+<p>Схема аутентификации по ключу:</p>
+<pre><code>клиент (приватный ключ)  ←→  сервер (публичный ключ в authorized_keys)
+</code></pre>
+<h3 id="ssh-keygen">Генерация ключа: <code>ssh-keygen</code></h3>
+<p>Создаёт пару ключей: <strong>приватный</strong> (хранится только у владельца) и <strong>публичный</strong> (можно копировать на серверы).</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;alice@laptop&quot;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Операнд / опция</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ssh-keygen</code></td>
+<td>Утилита генерации и управления ключами OpenSSH</td>
+</tr>
+<tr>
+<td><code>-t ed25519</code></td>
+<td><strong>-t</strong> (<em>type</em>) — алгоритм ключа. <strong>ed25519</strong> — современный, короткий и быстрый (рекомендуется). Альтернативы: <code>rsa</code> (обычно <code>-b 4096</code>), <code>ecdsa</code></td>
+</tr>
+<tr>
+<td><code>-C "alice@laptop"</code></td>
+<td><strong>-C</strong> (<em>comment</em>) — комментарий в конце публичного ключа; удобно для идентификации («чей это ключ и с какой машины»). Не влияет на криптографию</td>
+</tr>
+</tbody>
+</table>
+<p>Интерактивные вопросы при запуске:</p>
+<table>
+<thead>
+<tr>
+<th>Вопрос</th>
+<th>Что означает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Enter file in which to save the key</code></td>
+<td>Путь к файлу приватного ключа. По умолчанию <code>~/.ssh/id_ed25519</code>; Enter — принять значение по умолчанию</td>
+</tr>
+<tr>
+<td><code>Enter passphrase</code></td>
+<td>Дополнительный пароль на ключ. Пустой Enter — ключ без пароля (удобно для CI, менее безопасно на ноутбуке). С паролем — при каждом использовании нужна расшифровка (или <strong>ssh-agent</strong>)</td>
+</tr>
+</tbody>
+</table>
+<p>Результат:</p>
+<table>
+<thead>
+<tr>
+<th>Файл</th>
+<th>Назначение</th>
+<th>Права</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/.ssh/id_ed25519</code></td>
+<td>Приватный ключ — <strong>никому не отдавать</strong></td>
+<td><code>600</code> (<code>chmod 600</code>)</td>
+</tr>
+<tr>
+<td><code>~/.ssh/id_ed25519.pub</code></td>
+<td>Публичный ключ — копируется на сервер</td>
+<td><code>644</code></td>
+</tr>
+</tbody>
+</table>
+<p>Полезные дополнительные опции <code>ssh-keygen</code>:</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_work -C &quot;alice@work&quot;   # свой путь к файлу
+ssh-keygen -p -f ~/.ssh/id_ed25519                                   # сменить passphrase
+ssh-keygen -lf ~/.ssh/id_ed25519.pub                                   # показать отпечаток (fingerprint) ключа
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Опция</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-f путь</code></td>
+<td>Явно задать файл приватного ключа</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>Изменить passphrase существующего ключа</td>
+</tr>
+<tr>
+<td><code>-lf файл.pub</code></td>
+<td>Показать fingerprint публичного ключа</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ssh-copy-id">Копирование ключа на сервер: <code>ssh-copy-id</code></h3>
+<p>Добавляет ваш <strong>публичный</strong> ключ в <code>~/.ssh/authorized_keys</code> на удалённой машине.</p>
+<pre><code class="language-bash">ssh-copy-id alice@server.example.com
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Операнд</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ssh-copy-id</code></td>
+<td>Скрипт-обёртка: подключается по SSH, создаёт <code>~/.ssh</code>, дописывает ключ в <code>authorized_keys</code>, выставляет права</td>
+</tr>
+<tr>
+<td><code>alice@server.example.com</code></td>
+<td><strong>user@host</strong> — пользователь на сервере и адрес (DNS-имя или IP). Порт по умолчанию 22</td>
+</tr>
+</tbody>
+</table>
+<p>При первом подключении спросит пароль пользователя <code>alice</code> (если ещё включена парольная аутентификация). После этого вход по ключу должен работать без пароля.</p>
+<p>Варианты с нестандартным ключом или портом:</p>
+<pre><code class="language-bash">ssh-copy-id -i ~/.ssh/id_ed25519_work.pub alice@server.example.com
+ssh-copy-id -p 2222 alice@server.example.com
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Опция</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-i файл.pub</code></td>
+<td>Явно указать публичный ключ (если не стандартный <code>~/.ssh/id_ed25519.pub</code> / <code>id_rsa.pub</code>)</td>
+</tr>
+<tr>
+<td><code>-p 2222</code></td>
+<td>Порт SSH на сервере (если не 22)</td>
+</tr>
+</tbody>
+</table>
+<p>На сервере в <code>~/.ssh/authorized_keys</code> каждая строка — один разрешённый публичный ключ. Права: каталог <code>~/.ssh</code> — <code>700</code>, файл <code>authorized_keys</code> — <code>600</code>.</p>
+<h3 id="ssh_1">Подключение: <code>ssh</code></h3>
+<pre><code class="language-bash">ssh alice@server.example.com
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Операнд</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ssh</code></td>
+<td>Клиент SSH: открывает удалённую сессию (shell) или выполняет одну команду</td>
+</tr>
+<tr>
+<td><code>alice</code></td>
+<td>Имя пользователя на удалённой системе (логин)</td>
+</tr>
+<tr>
+<td><code>@</code></td>
+<td>Разделитель «пользователь / хост»</td>
+</tr>
+<tr>
+<td><code>server.example.com</code></td>
+<td>Имя хоста или IP-адрес сервера</td>
+</tr>
+</tbody>
+</table>
+<p>Частые опции:</p>
+<pre><code class="language-bash">ssh -p 2222 alice@server.example.com              # нестандартный порт
+ssh -i ~/.ssh/id_ed25519_work alice@server       # конкретный приватный ключ
+ssh -l bob server.example.com                    # то же, что bob@server (логин через -l)
+ssh alice@server 'hostname; uptime'              # выполнить команду без интерактивного shell
+ssh -v alice@server                              # v = verbose. подробный лог (отладка)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Опция</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-p порт</code></td>
+<td>TCP-порт SSH на сервере</td>
+</tr>
+<tr>
+<td><code>-i файл</code></td>
+<td>Путь к приватному ключу</td>
+</tr>
+<tr>
+<td><code>-l user</code></td>
+<td>Логин (альтернатива <code>user@host</code>)</td>
+</tr>
+<tr>
+<td><code>'команда'</code></td>
+<td>Выполнить одну команду и выйти</td>
+</tr>
+<tr>
+<td><code>-v</code> / <code>-vv</code> / <code>-vvv</code></td>
+<td>Уровень отладки (больше букв — больше деталей)</td>
+</tr>
+</tbody>
+</table>
+<p>Файл <code>~/.ssh/config</code> на клиенте позволяет не писать опции каждый раз:</p>
+<pre><code>Host myserver
+    HostName server.example.com
+    User alice
+    Port 2222
+    IdentityFile ~/.ssh/id_ed25519_work
+</code></pre>
+<p>После этого: <code>ssh myserver</code>.</p>
+<h3 id="hardening-etcsshsshd_config">Hardening сервера: <code>/etc/ssh/sshd_config</code></h3>
+<p><strong>sshd</strong> — демон SSH на сервере; конфиг — <code>/etc/ssh/sshd_config</code>.</p>
+<pre><code>PermitRootLogin no
+PasswordAuthentication no
+Port 2222
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Директива</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PermitRootLogin no</code></td>
+<td>Запретить прямой вход под <strong>root</strong> по SSH (рекомендуется: сначала обычный пользователь, затем <code>sudo</code>)</td>
+</tr>
+<tr>
+<td><code>PasswordAuthentication no</code></td>
+<td>Отключить вход по паролю; только ключи (или другие методы из <code>AuthenticationMethods</code>)</td>
+</tr>
+<tr>
+<td><code>Port 2222</code></td>
+<td>Слушать порт 2222 вместо 22 (не замена firewall, но снижает шум от ботов)</td>
+</tr>
+</tbody>
+</table>
+<p>Другие полезные директивы:</p>
+<table>
+<thead>
+<tr>
+<th>Директива</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PubkeyAuthentication yes</code></td>
+<td>Разрешить вход по ключу (обычно по умолчанию)</td>
+</tr>
+<tr>
+<td><code>AllowUsers alice bob</code></td>
+<td>Белый список пользователей, которым разрешён SSH</td>
+</tr>
+<tr>
+<td><code>MaxAuthTries 3</code></td>
+<td>Лимит попыток аутентификации за одно подключение</td>
+</tr>
+</tbody>
+</table>
+<p>Проверка и применение конфига:</p>
+<pre><code class="language-bash">sudo sshd -t
+sudo systemctl reload sshd
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Операнды</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sshd -t</code></td>
+<td><strong>-t</strong> (<em>test</em>)</td>
+<td>Проверить синтаксис <code>sshd_config</code> без перезапуска. При ошибке — код выхода ≠ 0 и сообщение в stderr</td>
+</tr>
+<tr>
+<td><code>systemctl reload sshd</code></td>
+<td><code>reload</code></td>
+<td>Перечитать конфиг без обрыва уже открытых сессий. Имя юнита на Debian/Ubuntu часто <code>ssh</code>, на RHEL — <code>sshd</code> (<code>systemctl reload ssh</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>После смены порта или отключения пароля держите вторую сессию открытой, пока не проверите новое подключение.</p>
+<h3 id="proxyjump">Подключение через бастион: <code>ProxyJump</code></h3>
+<p><strong>Bastion</strong> (бастионный хост или сервер-посредник) в контексте SSH — это выделенный, защищенный сервер, который служит единой точкой входа для подключения к внутренней, закрытой сети организации. <br />
+Он действует как шлюз: администратор сначала подключается по SSH к бастиону, а затем с него — к нужным внутренним серверам.  </p>
+<p>Чаще всего бастионы используются для следующих задач:<br />
+- Усиленная безопасность: Внутренние серверы не имеют прямого доступа из интернета.<br />
+Бастион закрывает их от внешних сканирований и атак.<br />
+- Централизованный аудит: Все подключения проходят через один сервер, что позволяет легко собирать и анализировать централизованные логи того, кто и когда заходил в инфраструктуру.<br />
+- Управление ключами: Вместо того чтобы администрировать SSH-ключи пользователей на десятках внутренних серверов, достаточно настроить доступ только на узле-бастионе.  </p>
+<p>Для удобной работы через такой шлюз в SSH применяются специальные методы:<br />
+- ProxyJump (переходной прыжок): Современный синтаксис SSH, который позволяет перенаправлять трафик через бастион без необходимости вручную открывать соединение до него, а затем со второй машины до финальной.<br />
+Настраивается аргументом -J или в конфигурационном файле.<br />
+- SSH-туннелирование: Использование локального перенаправления портов для создания защищенного туннеля через узел-бастион, например, для доступа к внутренним базам данных.<br />
+- VPN-over-SSH: Некоторые утилиты (например, sshuttle) позволяют создавать VPN-подобные шифрованные соединения через SSH-бастион для доступа ко всей внутренней подсети.  </p>
+<p><strong>ProxyJump</strong> — цепочка: клиент → промежуточный хост (бастион) → целевой сервер во внутренней сети.</p>
+<pre><code class="language-bash">ssh -J bastion.example.com target.internal
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Операнд / опция</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-J bastion.example.com</code></td>
+<td><strong>-J</strong> (<em>jump host</em>) — хост, через который проксируется соединение. Можно несколько: <code>-J jump1,jump2</code></td>
+</tr>
+<tr>
+<td><code>target.internal</code></td>
+<td>Конечный хост (доступен с бастиона, не обязательно с вашего ноутбука)</td>
+</tr>
+</tbody>
+</table>
+<p>Эквивалент в <code>~/.ssh/config</code>:</p>
+<pre><code>Host target
+    HostName target.internal
+    User alice
+    ProxyJump bastion.example.com
+</code></pre>
+<p>Расширенный вариант — <strong>ProxyCommand</strong> (старый способ, гибче, но сложнее):</p>
+<pre><code class="language-bash">ssh -o ProxyCommand=&quot;ssh -W %h:%p bastion.example.com&quot; target.internal
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Плейсхолдер</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%h</code></td>
+<td>Имя целевого хоста</td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>Порт целевого хоста</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ssh-agent-ssh-agent-ssh-add">SSH agent: <code>ssh-agent</code> и <code>ssh-add</code></h3>
+<p><strong>ssh-agent</strong> — фоновый процесс, хранящий <strong>расшифрованные</strong> приватные ключи в памяти сессии. Нужен, если на ключе стоит passphrase: вводите пароль один раз, дальше <code>ssh</code> / <code>git</code> используют агент.</p>
+<pre><code class="language-bash">eval &quot;$(ssh-agent -s)&quot;          # запустить агент в текущей shell-сессии
+ssh-add ~/.ssh/id_ed25519       # добавить ключ в агент (спросит passphrase)
+ssh-add -l                      # список загруженных ключей (fingerprints)
+ssh-add -D                      # удалить все ключи из агента
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Команда / опция</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ssh-agent -s</code></td>
+<td>Запуск агента; выводит переменные <code>SSH_AUTH_SOCK</code>, <code>SSH_AGENT_PID</code> для <code>eval</code></td>
+</tr>
+<tr>
+<td><code>ssh-add файл</code></td>
+<td>Загрузить приватный ключ в агент</td>
+</tr>
+<tr>
+<td><code>ssh-add -l</code></td>
+<td><strong>list</strong> — показать отпечатки ключей в агенте</td>
+</tr>
+<tr>
+<td><code>ssh-add -D</code></td>
+<td><strong>delete all</strong> — очистить агент</td>
+</tr>
+</tbody>
+</table>
+<p>Передача агента на удалённый хост (осторожно: доверяйте только своим серверам):</p>
+<pre><code class="language-bash">ssh -A alice@server.example.com    # -A — ForwardAgent yes
+</code></pre>
+<h3 id="_2">Копирование файлов (кратко)</h3>
+<pre><code class="language-bash">scp file.txt alice@server:/tmp/                    # копия на сервер
+scp -r ./local_dir alice@server:/opt/              # -r — рекурсивно (каталог)
+scp alice@server:/var/log/syslog ./logs/           # скачать с сервера
+sftp alice@server                                  # интерактивный SFTP (put, get, ls)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Ключевые опции</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scp</code></td>
+<td><code>-r</code> — каталоги; <code>-P порт</code> — порт (заглавная P); <code>-i</code> — ключ</td>
+</tr>
+<tr>
+<td><code>sftp</code></td>
+<td>Те же <code>-P</code>, <code>-i</code>; внутри сессии: <code>put</code>, <code>get</code>, <code>cd</code>, <code>lcd</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="linux-capabilities">Linux capabilities</h2>
+<p>Вместо полного <strong>root</strong> процессу можно выдать отдельные <strong>capabilities</strong> (возможности):</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Зачем</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAP_NET_BIND_SERVICE</td>
+<td>Слушать порт &lt; 1024 без root</td>
+</tr>
+<tr>
+<td>CAP_SYS_ADMIN</td>
+<td>Администрирование (опасно)</td>
+</tr>
+<tr>
+<td>CAP_NET_RAW</td>
+<td>raw-сокеты (ping без root)</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-bash">getcap /usr/bin/ping
+sudo setcap cap_net_bind_service=+ep /opt/myapp/server
+</code></pre>
+<p>Критично для контейнеров: Docker по умолчанию отбрасывает большинство capabilities.</p>
+<h2 id="selinux-apparmor">SELinux и AppArmor</h2>
+<p><strong>SELinux</strong> (Security-Enhanced Linux) — на RHEL/CentOS/Fedora. Режимы:</p>
+<ul>
+<li><strong>Enforcing</strong> — блокирует нарушения;</li>
+<li><strong>Permissive</strong> — только логирует;</li>
+<li><strong>Disabled</strong> — выключен.</li>
+</ul>
+<pre><code class="language-bash">getenforce
+sestatus
+ls -Z /var/www/html/       # контекст безопасности
+sudo restorecon -Rv /var/www/html/
+getsebool -a | grep httpd
+</code></pre>
+<p><strong>AppArmor</strong> — профили для приложений на Ubuntu/Debian (<code>aa-status</code>).</p>
+<h2 id="seccomp">seccomp (обзорно)</h2>
+<p><strong>seccomp</strong> (secure computing mode) — фильтр <strong>syscall'ов</strong>: процессу разрешён только белый список системных вызовов. Docker и Kubernetes используют для уменьшения поверхности атаки контейнера.</p>
+<h2 id="_3">Практика</h2>
+<ol>
+<li>Создать пользователя, выдать sudo только на один systemctl restart.</li>
+<li>Настроить вход по ключу, отключить PasswordAuthentication.</li>
+<li><code>getcap</code> на <code>/usr/bin/ping</code> — увидеть CAP_NET_RAW.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

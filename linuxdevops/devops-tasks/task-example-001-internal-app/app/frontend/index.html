@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register — Internal Messages</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header id="site-header"></header>
+    <main>
+      <div class="card">
+        <h1>Registration</h1>
+        <p class="hint">No email confirmation. Create an account to send messages.</p>
+        <form id="register-form">
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" required minlength="3" />
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="new-password" required minlength="4" />
+          <button type="submit">Register</button>
+        </form>
+        <p class="hint" style="margin-top: 1rem">
+          Already registered? <a href="/login.html">Log in</a>
+        </p>
+        <p id="error" class="error" hidden></p>
+      </div>
+    </main>
+    <script src="/app.js"></script>
+    <script>
+      if (getToken()) {
+        window.location.href = "/compose.html";
+      }
+      renderHeader();
+
+      document.getElementById("register-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const error = document.getElementById("error");
+        error.hidden = true;
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+        try {
+          const data = await api("/api/register", {
+            method: "POST",
+            body: JSON.stringify({ username, password }),
+          });
+          setSession(data.access_token, data.username);
+          window.location.href = "/compose.html";
+        } catch (err) {
+          error.textContent = err.message;
+          error.hidden = false;
+        }
+      });
+    </script>
+  </body>
+</html>

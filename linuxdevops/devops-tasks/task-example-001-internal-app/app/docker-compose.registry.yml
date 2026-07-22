@@ -1,0 +1,13 @@
+# Local image registry (Docker Distribution)
+# Docs: https://distribution.github.io/distribution/
+services:
+  registry:
+    image: registry:2
+    ports:
+      - "5000:5000"
+    volumes:
+      - registry-data:/var/lib/registry
+    restart: unless-stopped
+
+volumes:
+  registry-data:
